@@ -1,0 +1,48 @@
+---
+// Components
+// - Layout
+import Layout from '../layouts/Layout.astro'
+// - UI
+import Section from '../components/ui/Section.astro'
+import Row from '../components/ui/Row.astro'
+import Col from '../components/ui/Col.astro'
+
+// Content
+// - SEO
+const SEO = {
+	title: 'Activate Your Voice | Thank You',
+	description: 'Thank you for contacting Activate Your Voice. We will be in touch with you shortly.'
+}
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<Section classes="bg-neutral-50 dark:bg-neutral-950/80 min-h-[60vh] flex items-center">
+		<Row>
+			<Col span="12" align="center">
+				<div class="max-w-2xl mx-auto">
+					<h1 class="text-5xl font-bold mb-6">Thank You!</h1>
+					<p class="text-xl mb-8">
+						We'll get back to you as soon as possible.
+					</p>
+					<p class="text-lg text-neutral-600 dark:text-neutral-400 mb-8">
+						Feel free to explore our services or book a free consultation call.
+					</p>
+					<div class="flex gap-4 justify-center">
+						<a
+							href="/"
+							class="inline-flex items-center justify-center rounded-lg bg-primary-500 px-6 py-3 text-base font-medium text-white hover:bg-primary-600 transition-colors"
+						>
+							Back to Home
+						</a>
+						<a
+							href="/contact"
+							class="inline-flex items-center justify-center rounded-lg border border-neutral-300 dark:border-neutral-700 px-6 py-3 text-base font-medium hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+						>
+							Book a Call
+						</a>
+					</div>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+</Layout>

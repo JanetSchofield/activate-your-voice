@@ -1,0 +1,46 @@
+---
+// Calendly Widget
+// ------------
+// Description: Embedded Calendly booking widget
+
+// Components
+// - Layout
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+
+// Props
+type Props = {
+	classes?: string
+	url?: string
+}
+const { classes, url = 'https://calendly.com/ben-horton-finance-janet/30min' } = Astro.props
+---
+
+<Section id="book-lesson" classes={classes}>
+	<Row>
+		<Col span="12" align="center" classes="mb-8">
+			<h2 class="text-balance">Book Your <strong>Free Intro Call</strong></h2>
+			<p class="pb-0 text-lg max-w-3xl mx-auto">
+				Free intro call, no commitment. Select a time that works for you:
+			</p>
+		</Col>
+	</Row>
+	<Row>
+		<Col span="12">
+			<div
+				class="calendly-inline-widget"
+				data-url={url}
+				style="min-width:320px;height:700px;"
+			></div>
+			<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" is:inline></script>
+		</Col>
+	</Row>
+</Section>
+
+<style>
+	.calendly-inline-widget {
+		position: relative;
+		width: 100%;
+	}
+</style>

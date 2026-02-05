@@ -1,0 +1,107 @@
+---
+// Basic Contact Form
+// ------------
+// Description: A basic contact form with fields for first name, last name, email, phone number and message.
+// Properties:
+// - classes: Additional classes to be added to the block
+// ------------
+
+// Components
+// - UI
+import Card from '../../ui/cards/partials/Card.astro'
+import CardBody from '../../ui/cards/partials/CardBody.astro'
+import Form from '../../ui/forms/Form.astro'
+import FormField from '../../ui/forms/partials/FormField.astro'
+import InputField from '../../ui/forms/form-elements/InputField.astro'
+import TextArea from '../../ui/forms/form-elements/TextArea.astro'
+import Button from '../../ui/Button.astro'
+
+// Props
+type Props = {
+	classes?: string
+}
+const { classes } = Astro.props
+---
+
+<Card classes={classes}>
+	<CardBody>
+		<Form name="contact" id="contact-form">
+			<input type="hidden" name="form-name" value="contact" />
+			<h2 class="text-2xl">Get in Touch</h2>
+			<FormField>
+				<InputField type="text" id="firstName" label="First Name" required />
+				<InputField type="text" id="lastName" label="Last Name" required />
+			</FormField>
+			<FormField>
+				<InputField type="email" id="email" label="Email" required value="" />
+			</FormField>
+			<FormField>
+				<InputField type="tel" id="phone" label="Phone Number" />
+			</FormField>
+			<FormField><TextArea id="message" label="Your Message" required /></FormField>
+			<Button style="primary" type="submit">Submit</Button>
+		</Form>
+	</CardBody>
+</Card>
+
+<script>
+	const form = document.getElementById('contact-form') as HTMLFormElement;
+	if (form) {
+		form.setAttribute('data-netlify', 'true');
+		form.addEventListener('submit', async (e) => {
+			e.preventDefault();
+			
+			// Get form fields
+			const firstName = (document.getElementById('firstName') as HTMLInputElement)?.value.trim();
+			const lastName = (document.getElementById('lastName') as HTMLInputElement)?.value.trim();
+			const email = (document.getElementById('email') as HTMLInputElement)?.value.trim();
+			const message = (document.getElementById('message') as HTMLTextAreaElement)?.value.trim();
+			
+			// Validate required fields
+			if (!firstName) {
+				alert('Please enter your first name.');
+				return;
+			}
+			
+			if (!lastName) {
+				alert('Please enter your last name.');
+				return;
+			}
+			
+			if (!email) {
+				alert('Please enter your email address.');
+				return;
+			}
+			
+			// Validate email format
+			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			if (!emailRegex.test(email)) {
+				alert('Please enter a valid email address.');
+				return;
+			}
+			
+			if (!message) {
+				alert('Please enter your message.');
+				return;
+			}
+			
+			const formData = new FormData(form);
+			
+			try {
+				const response = await fetch('/', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+					body: new URLSearchParams(formData as any).toString()
+				});
+				
+				if (response.ok) {
+					window.location.href = '/thanks';
+				} else {
+					alert('There was a problem submitting the form. Please try again.');
+				}
+			} catch (error) {
+				alert('There was a problem submitting the form. Please try again.');
+			}
+		});
+	}
+</script>

@@ -1,0 +1,31 @@
+---
+// Components
+// - Layout
+import Layout from '../layouts/Layout.astro'
+// - UI
+import FormHero from '../components/blocks/hero/ContactHero.astro'
+import Calendly from '../components/blocks/contact/Calendly.astro'
+
+// Content
+// - SEO
+const SEO = {
+	title: 'Activate Your Voice | Get in Touch',
+	description:
+		'Have questions about our vocal coaching or acting tuition services? Contact Activate Your Voice today. Book a free intro call or send us a message.'
+}
+// - Page Header
+const header = {
+	title: 'Get in Touch',
+	text: "Questions before booking? Send a quick message below:"
+}
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<Calendly classes="bg-neutral-50 dark:bg-neutral-950/80" />
+	<FormHero
+		title={header.title}
+		text={header.text}
+		id="contact"
+		classes="bg-white dark:bg-neutral-950"
+	/>
+</Layout>
