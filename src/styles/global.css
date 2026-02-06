@@ -1,6 +1,10 @@
 /* Layout rules */
 html {
 	@apply scroll-smooth antialiased;
+	overflow-x: hidden;
+}
+body {
+	overflow-x: hidden;
 }
 body {
 	@apply bg-white text-neutral-500 has-[.header\_\_menu--open]:overflow-hidden has-[.header\_\_menu--open]:bg-[#1B008A] lg:has-[.header\_\_menu--open]:overflow-auto dark:bg-neutral-950 dark:text-neutral-400 [.dark_&]:text-neutral-400 [.light_&]:text-neutral-500;
