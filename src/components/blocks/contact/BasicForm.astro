@@ -44,69 +44,74 @@ const { classes } = Astro.props
 	</CardBody>
 </Card>
 
-<script>
-	document.addEventListener('DOMContentLoaded', function() {
-		const form = document.getElementById('contact-form') as HTMLFormElement;
-		if (!form) {
-			console.error('Contact form not found');
-			return;
-		}
-		
-		form.setAttribute('data-netlify', 'true');
-		form.addEventListener('submit', async (e) => {
-			e.preventDefault();
-			
-			// Get form fields
-			const firstName = (document.getElementById('firstName') as HTMLInputElement)?.value.trim();
-			const lastName = (document.getElementById('lastName') as HTMLInputElement)?.value.trim();
-			const email = (document.getElementById('email') as HTMLInputElement)?.value.trim();
-			const message = (document.getElementById('message') as HTMLTextAreaElement)?.value.trim();
-			
-			// Validate required fields
-			if (!firstName) {
-				alert('Please enter your first name.');
+<script is:inline>
+	(function() {
+		function setupForm() {
+			var form = document.getElementById('contact-form');
+			if (!form) {
+				setTimeout(setupForm, 100);
 				return;
 			}
 			
-			if (!lastName) {
-				alert('Please enter your last name.');
-				return;
-			}
-			
-			if (!email) {
-				alert('Please enter your email address.');
-				return;
-			}
-			
-			// Validate email format
-			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-			if (!emailRegex.test(email)) {
-				alert('Please enter a valid email address.');
-				return;
-			}
-			
-			if (!message) {
-				alert('Please enter your message.');
-				return;
-			}
-			
-			const formData = new FormData(form);
-			
-			try {
-				const response = await fetch('/', {
+			form.setAttribute('data-netlify', 'true');
+			form.addEventListener('submit', function(e) {
+				e.preventDefault();
+				
+				var firstName = document.getElementById('firstName').value.trim();
+				var lastName = document.getElementById('lastName').value.trim();
+				var email = document.getElementById('email').value.trim();
+				var message = document.getElementById('message').value.trim();
+				
+				if (!firstName) {
+					alert('Please enter your first name.');
+					return;
+				}
+				
+				if (!lastName) {
+					alert('Please enter your last name.');
+					return;
+				}
+				
+				if (!email) {
+					alert('Please enter your email address.');
+					return;
+				}
+				
+				var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+				if (!emailRegex.test(email)) {
+					alert('Please enter a valid email address.');
+					return;
+				}
+				
+				if (!message) {
+					alert('Please enter your message.');
+					return;
+				}
+				
+				var formData = new FormData(form);
+				
+				fetch('/', {
 					method: 'POST',
 					headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-					body: new URLSearchParams(formData as any).toString()
-				});
-				
-				if (response.ok) {
-					window.location.href = '/thanks';
-				} else {
+					body: new URLSearchParams(formData).toString()
+				})
+				.then(function(response) {
+					if (response.ok) {
+						window.location.href = '/thanks';
+					} else {
+						alert('There was a problem submitting the form. Please try again.');
+					}
+				})
+				.catch(function() {
 					alert('There was a problem submitting the form. Please try again.');
-				}
-			} catch (error) {
-				alert('There was a problem submitting the form. Please try again.');
-			}
-		});
-	});
+				});
+			});
+		}
+		
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', setupForm);
+		} else {
+			setupForm();
+		}
+	})();
 </script>
