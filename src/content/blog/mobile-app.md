@@ -1,19 +1,19 @@
 ---
-title: 'Foxi Mobile App Launch'
+title: 'Activate Your Voice Mobile App Launch'
 pubDate: 2024-04-05T05:00:00Z
-description: 'We have rolled out new security updates to keep your data safe and secure. Learn more about our latest security enhancements and how they protect you.'
+description: 'Our new mobile app is now available! Learn more about the latest features and enhancements we've rolled out.'
 author: 'Eleni K'
 image: '/blog/post-02-cover.png'
 tags: ['app', 'announcement']
 ---
 
-The Foxi mobile app is now available! Manage your tasks and projects on the go with our new mobile app. Stay connected and productive no matter where you are.
+The Activate Your Voice mobile app is now available! Access your voice coaching lessons and resources on the go with our new mobile app. Stay connected and dedicated to your vocal development wherever you are.
 
 ### Features
 
-- **Full Functionality on Mobile**: Access all of Foxi's features from your mobile device. Manage tasks, communicate with your team, and track your projects with ease.
-- **Sync with Desktop**: Seamlessly sync your data between the mobile app and the desktop version of Foxi. Keep your information up-to-date across all devices.
-- **Offline Mode**: Use Foxi even when you don't have an internet connection. Your changes will sync automatically once you're back online.
+- **Full Functionality on Mobile**: Access all of Activate Your Voice's features from your mobile device. Take lessons, access resources, and track your progress with ease.
+- **Sync with Desktop**: Seamlessly sync your data between the mobile app and the desktop version of Activate Your Voice. Keep your information up-to-date across all devices.
+- **Offline Mode**: Use Activate Your Voice even when you don't have an internet connection. Your changes will sync automatically once you're back online.
 
 Download the Foxi mobile app today from the App Store or Google Play and take your productivity with you wherever you go!
 

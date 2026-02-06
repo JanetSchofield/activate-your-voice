@@ -1,21 +1,21 @@
 ---
-title: 'Welcome to Foxi!'
+title: 'Welcome to Activate Your Voice!'
 pubDate: 2024-04-04T05:00:00Z
-description: "We're excited to introduce you to the ultimate productivity app designed to help you manage your tasks effortlessly to help you stay organized and efficient."
+description: "We're excited to introduce you to Activate Your Voice - your premier voice coaching and speech training platform designed to help you unlock your best voice and communicate with confidence."
 author: 'Eleni K'
 image: '/blog/post-01-cover.png'
 tags: ['productivity', 'announcement']
 ---
 
-Welcome to Foxi! We're excited to introduce you to the ultimate productivity app designed to help you manage your tasks effortlessly. Foxi combines powerful features with an intuitive interface to help you stay organized and efficient.
+Welcome to Activate Your Voice! We're excited to introduce you to our premier voice coaching platform designed to help you master your voice and communicate with confidence. Activate Your Voice combines expert coaching with an intuitive learning experience to help you unlock your full potential.
 
-![Foxi is here.](/blog/post-01.png)
+![Activate Your Voice is here.](/blog/post-01.png)
 
 We have rolled out new security updates to keep your data safe and secure. Learn more about our latest security enhancements and how they protect you.
 
-Whether you're managing personal tasks, collaborating with a team, or tracking your projects, Foxi has you covered. Our mission is to provide you with the tools you need to succeed.
+Whether you're improving your speaking skills, preparing for auditions, or building your confidence, Activate Your Voice has you covered. Our mission is to provide you with the tools and guidance you need to succeed.
 
-> Foxi combines powerful features with an intuitive interface to help you stay organized and efficient!
+> Activate Your Voice combines expert coaching with an intuitive learning experience to help you unlock your full potential!
 
 ### Key Features
 

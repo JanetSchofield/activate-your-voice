@@ -27,7 +27,7 @@ Elocution is the skill of **articulate, expressive, and deliberate speech**. It 
 
 **Projection**: Speaking with strength and presence, without shouting.
 
-It’s not about sounding “posh” or overly polished. It’s about being **authentic, clear,** and **memorable**.
+It's not about sounding "posh" or overly polished. It's about being **authentic, clear,** and **memorable**.​
 
 ## **Why Elocution Matters More Than Ever**
 
@@ -61,7 +61,7 @@ You don’t need to be a performer. You just need a voice — and the desire to 
 
 ## **How Activate Your Voice Can Help**
 
-We specialise in vocal coaching that blends** elocution training** with **modern communication techniques **. Our sessions are practical, empowering, and tailored to your real-world goals.
+We specialise in vocal coaching that blends **elocution training** with **modern communication techniques**. Our sessions are practical, empowering, and tailored to your real-world goals.
 
 Through one-to-one coaching, group workshops, and online resources, we help you:
 

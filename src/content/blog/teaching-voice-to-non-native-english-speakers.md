@@ -11,7 +11,7 @@ Whether you're speaking on stage, over the radio, or in daily conversation, your
 
 But what happens when **English isn't your first language**?
 
-For many non-native English speakers, voice work can be transformative, not just for **fluency**, but for **confidence, clarity,** and **self-expression.**
+For many non-native English speakers, voice work can be transformative, not just for **fluency**, but for **confidence, clarity,** and **self-expression**.​
 
 &nbsp;
 
@@ -21,7 +21,7 @@ Learning a new language often brings anxiety:*“Will they understand me?”“D
 
 Voice training helps break through that fear.
 
-By working on **breath, tone, resonance,** and **rhythm**, students gain more than clearer speech, they gain **presence**.
+By working on **breath, tone, resonance,** and **rhythm**, students gain more than clearer speech, they gain **presence**.​
 
 It’s not about erasing identity. It’s about helping it be heard.
 
@@ -31,7 +31,7 @@ It’s not about erasing identity. It’s about helping it be heard.
 
 Let’s be clear: the goal isn’t to “lose” your accent.
 
-Instead, we focus on **accent clarity**, enhancing sound and speech patterns so you're clearly **understood, without losing who you are**.
+Instead, we focus on **accent clarity**, enhancing sound and speech patterns so you're clearly **understood, without losing who you are**.​
 
 With the right tools, your accent becomes an asset, not a barrier.
 

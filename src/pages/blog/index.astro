@@ -16,9 +16,9 @@ import { getCollection } from 'astro:content'
 // Content
 // - SEO
 const SEO = {
-	title: 'Foxi | Latest Foxi News and updates',
+	title: 'ActivateYourVoice | Public Speaking Training Elocution Lessons Voice Coaching Activate Your Voice',
 	description:
-		"Explore Foxi's latest news designed to enhance productivity, ensure top-notch security, and integrate seamlessly with your favorite tools. Join thousands of satisfied users and transform your workflow with Foxi today!"
+		"Public Speaking Trainingm Elocution Lessons & Voice Coaching to Activate Your Voice"
 }
 // - Page Header
 const header = {
@@ -32,9 +32,10 @@ const allPosts = await getCollection('blog')
 <Layout title={SEO.title} description={SEO.description}>
    <div style="position:relative;width:100vw;max-width:100%;overflow:hidden;margin-bottom:0.75rem;height:320px;">
 	   <img src="/news.jpg" alt="News banner" style="width:100%;height:100%;object-fit:cover;object-position:center;" />
+	   <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(200,200,200,0.4));"></div>
 	   <div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;">
-		   <h1 style="color:#1B008A;font-size:3rem;font-weight:700;text-align:center;margin-bottom:0.5rem;background:rgba(255,255,255,0.7);padding:0.5rem 2rem;border-radius:1rem;">The Latest <span style='color:#6EE7B7'>News</span></h1>
-		   <p style="color:#444;font-size:1.25rem;text-align:center;background:rgba(255,255,255,0.7);padding:0.5rem 1.5rem;border-radius:1rem;">All the latest news within the voice and drama industry.</p>
+		   <h1 style="color:#1B008A;font-size:3rem;font-weight:700;text-align:center;margin-bottom:0.5rem;padding:0.5rem 2rem;border-radius:1rem;">The Latest <span style='color:#6EE7B7'>News</span></h1>
+		   <p style="color:#444;font-size:1.25rem;text-align:center;padding:0.5rem 1.5rem;border-radius:1rem;">All the latest news within the voice and drama industry.</p>
 	   </div>
    </div>
    <BlogPosts data={allPosts} />

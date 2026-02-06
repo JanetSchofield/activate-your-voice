@@ -41,6 +41,6 @@ Studies show that children involved in speech and drama classes often perform be
 
 ## Give Your Child the Gift of Expression
 
-Speech and drama lessons are more than just extracurricular activities; they are a foundation for personal growth. By enrolling your child, you’re giving them the tools to **shine with confidence, express themselves freely, and build skills that last a lifetime. **
+Speech and drama lessons are more than just extracurricular activities; they are a foundation for personal growth. By enrolling your child, you're giving them the tools to **shine with confidence, express themselves freely, and build skills that last a lifetime.**
 
-🌟 Ready to help your child unlock their potential? Explore our **speech and drama lessons for children **today!
+🌟 Ready to help your child unlock their potential? Explore our **speech and drama lessons for children** today!

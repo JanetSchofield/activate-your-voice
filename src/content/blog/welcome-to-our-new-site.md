@@ -19,4 +19,4 @@ I was interested in learning more about the way a business was run, and the many
 
 Now, after training and working as an actor, I know all too well the struggle with finding the right pieces for auditions, the desire to achieve your goal, the painstaking process of audition after audition and the bag of nerves that goes along with it. So, I decided to put all that experience and knowledge into one place and offer it out to you! You can find out more about what I offer [here](https://www.activateyourvoice.co.uk/the-team/).Without further ado…we officially declare Activate Your Voice OPEN!So, have a look around our new home and see what you think.
 
-You might even decide to stay a while…Get in touch[uncode_share layout="multiple" no_back="yes"]
+You might even decide to stay a while…Get in touch

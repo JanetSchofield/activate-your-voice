@@ -22,5 +22,3 @@ There are specific things to do that can improve your communication skills:
 - Maintain a positive attitude and smile. Even when you are speaking on the phone, smile because your positive attitude will shine through and the other person will know it. When you smile often and exude a positive attitude, people will respond positively to you.
 
 Communicating effectively is a teachable skill, therefore following a few of the tips outlined above, will enable you to hone up on your communication skills.
-
-[uncode_share layout="multiple"]
