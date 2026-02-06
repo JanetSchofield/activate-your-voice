@@ -1,7 +1,7 @@
 ---
 title: 'Activate Your Voice Mobile App Launch'
 pubDate: 2024-04-05T05:00:00Z
-description: 'Our new mobile app is now available! Learn more about the latest features and enhancements we've rolled out.'
+description: 'Our new mobile app is now available! Learn more about the latest features and enhancements we''ve rolled out.'
 author: 'Eleni K'
 image: '/blog/post-02-cover.png'
 tags: ['app', 'announcement']
