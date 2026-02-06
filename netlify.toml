@@ -5,6 +5,10 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# Enable Netlify Forms
+[build.processing]
+  skip_processing = false
+
 [[headers]]
   for = "/*"
   [headers.values]
