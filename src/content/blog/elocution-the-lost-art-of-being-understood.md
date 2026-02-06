@@ -3,6 +3,7 @@ title: 'Elocution: The Lost Art of Being Understood'
 pubDate: 2025-06-05T10:02:00Z
 description: ""
 author: 'Janet Schofield'
+image: '/elocution-lessons.jpg'
 tags: ['vocal training', 'communication']
 ---
 

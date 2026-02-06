@@ -1,9 +1,10 @@
 ---
 title: 'January: A New Year, A Stronger Voice'
 pubDate: 2026-01-13T16:46:28Z
-description: "December arrives with its own kind of energy. For many professionals, it’s a month of deadlines, celebrations, reflections, and the pressure to “end the year strong.”"
+description: "December arrives with its own kind of energy. For many professionals, it's a month of deadlines, celebrations, reflections, and the pressure to end the year strong."
 author: 'Janet Schofield'
 tags: ['vocal training', 'communication']
+image: '/january_new_voice.png'
 ---
 
 The start of a new year brings fresh energy, renewed focus, and a question many of us quietly ask: how do I want to show up this year? At Activate Your Voice, January isn’t about reinvention - it’s about intention. It’s a time to build confident communication, strengthen vocal clarity, and use the voice you already have with greater ease and impact.

@@ -3,6 +3,7 @@ title: 'What is Public Speaking Training?'
 pubDate: 2024-08-15T10:28:16Z
 description: "Public Speaking is the art of delivering a speech or presentation to a live audience. The skill is deep rooted in cultures across the world in a variety of industries, from the corporate world, to politicians, and even delivering a speech at a wedding or event. When done correctly, Public Speaking has the ability to impact lives of both the people inside and outside the room."
 author: 'Janet Schofield'
+image: '/public-speaking-business.jpg'
 tags: ['vocal training', 'communication']
 ---
 

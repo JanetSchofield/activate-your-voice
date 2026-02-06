@@ -1,8 +1,9 @@
 ---
 title: 'Welcome to our new site!'
 pubDate: 2023-05-22T21:10:53Z
-description: "We are delighted to launch our new business ‘Activate Your Voice’. We’ve opened our doors, put the kettle on and even baked a treat….offer and see how we can help you excel."
+description: "We are delighted to launch our new business 'Activate Your Voice'. We've opened our doors, put the kettle on and even baked a treat. So take a seat and see how we can help you excel."
 author: 'Janet Schofield'
+image: '/presentation.jpg'
 tags: ['vocal training', 'communication']
 ---
 

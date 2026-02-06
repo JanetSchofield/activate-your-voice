@@ -3,6 +3,7 @@ title: 'Get Ready for the Upcoming Speech and Drama Exams at Activate Your Voice
 pubDate: 2025-04-04T09:50:16Z
 description: ""
 author: 'Janet Schofield'
+image: '/exams.jpg'
 tags: ['vocal training', 'communication']
 ---
 

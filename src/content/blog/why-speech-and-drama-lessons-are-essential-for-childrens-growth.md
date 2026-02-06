@@ -3,6 +3,7 @@ title: 'Why Speech and Drama Lessons Are Essential for Children’s Growth'
 pubDate: 2025-09-05T10:04:31Z
 description: "Parents today are always looking for ways to support their child’s development, not just academically, but also socially and emotionally."
 author: 'Janet Schofield'
+image: '/why_speach.png'
 tags: ['vocal training', 'communication']
 ---
 

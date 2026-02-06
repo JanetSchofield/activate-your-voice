@@ -3,6 +3,7 @@ title: 'Voice Coaching'
 pubDate: 2024-08-13T15:13:44Z
 description: "Voice coaching focuses on improving the quality, clarity, and impact of one's voice. It encompasses a variety of techniques and exercises designed to enhance vocal performance, making it invaluable for professionals such as actors, broadcasters, public speakers, professionals, and anyone who relies on their voice for effective communication."
 author: 'Janet Schofield'
+image: '/speech-coaching.jpg'
 tags: ['vocal training', 'communication']
 ---
 

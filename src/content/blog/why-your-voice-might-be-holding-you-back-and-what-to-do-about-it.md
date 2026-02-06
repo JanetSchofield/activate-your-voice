@@ -3,6 +3,7 @@ title: 'Why Your Voice Might Be Holding You Back—And What to Do About It'
 pubDate: 2025-05-07T12:54:39Z
 description: ""
 author: 'Janet Schofield'
+image: '/presentation-speaking.jpg'
 tags: ['vocal training', 'communication']
 ---
 

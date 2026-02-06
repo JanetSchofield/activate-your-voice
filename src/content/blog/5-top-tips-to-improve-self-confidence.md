@@ -3,6 +3,7 @@ title: '5 Top Tips to Improve Self Confidence'
 pubDate: 2023-02-05T21:44:07Z
 description: "Communicating effectively is a teachable skill, therefore following a few of the tips outlined, will enable you to hone your communication skills."
 author: 'Janet Schofield'
+image: '/goals-edited.jpg'
 tags: ['vocal training', 'communication']
 ---
 

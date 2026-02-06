@@ -3,6 +3,7 @@ title: 'How to Take Care of Your Voice: Expert Tips'
 pubDate: 2025-11-03T14:16:14Z
 description: "We believe your voice is more than just sound, it’s your identity, your confidence, and your connection to the world."
 author: 'Janet Schofield'
+image: '/shutterstock_785622691-scaled.jpg'
 tags: ['vocal training', 'communication']
 ---
 

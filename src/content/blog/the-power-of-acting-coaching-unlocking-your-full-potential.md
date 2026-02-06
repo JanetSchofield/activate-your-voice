@@ -3,6 +3,7 @@ title: 'The Power of Acting Coaching: Unlocking Your Full Potential'
 pubDate: 2025-02-11T12:02:14Z
 description: "Public Speaking is the art of delivering a speech or presentation to a live audience. The skill is deep rooted in cultures across the world in a variety of industries, from the corporate world, to politicians, and even delivering a speech at a wedding or event. When done correctly, Public Speaking has the ability to impact lives of both the people inside and outside the room."
 author: 'Janet Schofield'
+image: '/acting.jpg'
 tags: ['vocal training', 'communication']
 ---
 

@@ -3,6 +3,7 @@ title: 'The Importance of Vocal Warm-Ups for Actors and Speakers'
 pubDate: 2025-03-11T15:28:56Z
 description: ""
 author: 'Janet Schofield'
+image: '/acting.jpg'
 tags: ['vocal training', 'communication']
 ---
 

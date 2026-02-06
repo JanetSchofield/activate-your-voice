@@ -3,6 +3,7 @@ title: 'Finding Your Voice in a Season of Noise'
 pubDate: 2025-12-15T13:43:28Z
 description: "December arrives with its own kind of energy. For many professionals, it’s a month of deadlines, celebrations, reflections, and the pressure to “end the year strong.”"
 author: 'Janet Schofield'
+image: '/finding_voice.png'
 tags: ['vocal training', 'communication']
 ---
 

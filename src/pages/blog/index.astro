@@ -22,14 +22,20 @@ const SEO = {
 }
 // - Page Header
 const header = {
-	title: 'The <strong>Foxi</strong> Blog. Tips, Updates & Stories',
-	text: 'Stay informed, stay productive. All the latest from the world of Foxi.'
+	title: 'The Latest <strong>News</strong>',
+	text: 'All the latest news within the voice and drama industry.'
 }
 
 const allPosts = await getCollection('blog')
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
-	<Hero title={header.title} text={header.text} />
-	<BlogPosts data={allPosts} />
+   <div style="position:relative;width:100vw;max-width:100%;overflow:hidden;margin-bottom:0.75rem;height:320px;">
+	   <img src="/news.jpg" alt="News banner" style="width:100%;height:100%;object-fit:cover;object-position:center;" />
+	   <div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;">
+		   <h1 style="color:#1B008A;font-size:3rem;font-weight:700;text-align:center;margin-bottom:0.5rem;background:rgba(255,255,255,0.7);padding:0.5rem 2rem;border-radius:1rem;">The Latest <span style='color:#6EE7B7'>News</span></h1>
+		   <p style="color:#444;font-size:1.25rem;text-align:center;background:rgba(255,255,255,0.7);padding:0.5rem 1.5rem;border-radius:1rem;">All the latest news within the voice and drama industry.</p>
+	   </div>
+   </div>
+   <BlogPosts data={allPosts} />
 </Layout>

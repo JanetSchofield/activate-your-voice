@@ -3,6 +3,7 @@ title: 'Public Speaking Training'
 pubDate: 2024-05-28T15:40:49Z
 description: "Being asked to speak in public, or to a large audience can be a daunting task, whether it is for work, a wedding, or the Golf Club."
 author: 'Janet Schofield'
+image: '/public-speaking.jpg'
 tags: ['vocal training', 'communication']
 ---
 

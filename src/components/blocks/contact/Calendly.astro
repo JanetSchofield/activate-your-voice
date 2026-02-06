@@ -84,7 +84,17 @@ const { classes, url = 'https://calendly.com/ben-horton-finance-janet/30min' } =
    } else {
 	   setupCalendly();
    }
-   document.addEventListener('astro:after-swap', setupCalendly);
+   document.addEventListener('astro:after-swap', () => {
+	   // Remove Calendly widget if not on contact page
+	   if (!window.location.pathname.includes('contact')) {
+		   const parent = document.querySelector('.calendly-inline-widget');
+		   if (parent) {
+			   Array.from(parent.querySelectorAll('iframe')).forEach((iframe) => iframe.remove());
+		   }
+	   } else {
+		   setupCalendly();
+	   }
+   });
 </script>
 
 <style>

@@ -3,6 +3,7 @@ title: 'Teaching Voice to Non-Native English Speakers'
 pubDate: 2025-07-07T15:17:32Z
 description: "Whether you’re speaking on stage, over the radio, or in daily conversation, your voice is your power."
 author: 'Janet Schofield'
+image: '/presentation.jpg'
 tags: ['vocal training', 'communication']
 ---
 

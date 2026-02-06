@@ -3,6 +3,7 @@ title: '10 Ways to Improve Your Communication Skills'
 pubDate: 2022-12-16T10:43:39Z
 description: "Communicating effectively is a teachable skill, therefore following a few of the tips outlined, will enable you to hone your communication skills."
 author: 'Janet Schofield'
+image: '/presentation-speaking.jpg'
 tags: ['vocal training', 'communication']
 ---
 
