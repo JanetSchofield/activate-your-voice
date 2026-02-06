@@ -136,10 +136,10 @@ const savedNavActions = navActions.map((action) => ({
 	.header__nav {
 		@apply flex h-[4.9rem] items-stretch gap-3 text-sm font-medium text-neutral-50 lg:justify-between;
 	}
-	.header__menu {
-		@apply invisible absolute left-0 top-0 z-[-1] ml-auto h-dvh w-full justify-center overflow-hidden overflow-y-auto overscroll-contain px-8 py-[6rem] font-medium opacity-0 transition-[opacity,visibility] duration-300 lg:visible lg:relative lg:top-0 lg:z-0 lg:flex lg:h-full lg:w-auto lg:items-stretch lg:overflow-visible lg:bg-transparent lg:px-0 lg:py-0 lg:pt-0 lg:opacity-100;
-		background-color: #1B008A;
-	}
+	   .header__menu {
+		   @apply invisible absolute left-0 top-0 z-[-1] ml-auto h-dvh w-full justify-center overflow-hidden overflow-y-auto overscroll-contain px-8 py-[6rem] font-medium opacity-0 transition-[opacity,visibility] duration-300 lg:visible lg:relative lg:top-0 lg:z-0 lg:flex lg:h-full lg:w-auto lg:items-stretch lg:overflow-visible lg:bg-transparent lg:px-0 lg:py-0 lg:pt-0 lg:opacity-100;
+		   background-color: rgba(27, 0, 138, 0.92);
+	   }
 	.header__menu--open {
 		@apply visible opacity-100 backdrop-blur-sm;
 	}
@@ -185,5 +185,6 @@ const savedNavActions = navActions.map((action) => ({
 	.header__actions {
 		@apply fixed bottom-0 left-0 hidden w-full items-center justify-between gap-4 border-t border-neutral-800 px-6 py-4 lg:relative lg:ml-auto lg:flex lg:w-auto lg:border-none lg:bg-transparent lg:px-0 lg:py-0 [.header\_\_menu--open~&]:flex;
 		background-color: #1B008A;
+		padding-bottom: env(safe-area-inset-bottom, 0.75rem);
 	}
 </style>

@@ -34,11 +34,36 @@ const { classes, url = 'https://calendly.com/ben-horton-finance-janet/30min' } =
 				data-url={url}
 				style="min-width:320px;height:700px;"
 			></div>
-			<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 			<!-- Calendly inline widget end -->
 		</Col>
 	</Row>
 </Section>
+
+<script define:vars={{url}}>
+	function initCalendly() {
+		// Wait for Calendly library to be available
+		if (!window.Calendly) {
+			setTimeout(initCalendly, 100);
+			return;
+		}
+		
+		// Initialize the widget - it will find the widget div automatically by class
+		window.Calendly.initInlineWidget({
+			url: url,
+			parentElement: document.querySelector('.calendly-inline-widget')
+		});
+	}
+	
+	// Initialize when DOM is ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initCalendly);
+	} else {
+		initCalendly();
+	}
+	
+	// Reinitialize after view transitions
+	document.addEventListener('astro:after-swap', initCalendly);
+</script>
 
 <style>
 	.calendly-inline-widget {

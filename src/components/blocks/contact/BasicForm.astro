@@ -25,93 +25,21 @@ const { classes } = Astro.props
 
 <Card classes={classes}>
 	<CardBody>
-		<Form name="contact" id="contact-form">
+		<Form name="contact" id="contact-form" data-netlify="true" action="/thanks" method="POST">
 			<input type="hidden" name="form-name" value="contact" />
 			<h2 class="text-2xl">Get in Touch</h2>
 			<FormField>
-				<InputField type="text" id="firstName" label="First Name" required />
-				<InputField type="text" id="lastName" label="Last Name" required />
+				<InputField type="text" id="firstName" name="firstName" label="First Name" required />
+				<InputField type="text" id="lastName" name="lastName" label="Last Name" required />
 			</FormField>
 			<FormField>
-				<InputField type="email" id="email" label="Email" required value="" />
+				<InputField type="email" id="email" name="email" label="Email" required value="" />
 			</FormField>
 			<FormField>
-				<InputField type="tel" id="phone" label="Phone Number" />
+				<InputField type="tel" id="phone" name="phone" label="Phone Number" required />
 			</FormField>
-			<FormField><TextArea id="message" label="Your Message" required /></FormField>
+			<FormField><TextArea id="message" name="message" label="Your Message" required /></FormField>
 			<Button style="primary" type="submit">Submit</Button>
 		</Form>
 	</CardBody>
 </Card>
-
-<script is:inline>
-	(function() {
-		function setupForm() {
-			var form = document.getElementById('contact-form');
-			if (!form) {
-				setTimeout(setupForm, 100);
-				return;
-			}
-			
-			form.setAttribute('data-netlify', 'true');
-			form.addEventListener('submit', function(e) {
-				e.preventDefault();
-				
-				var firstName = document.getElementById('firstName').value.trim();
-				var lastName = document.getElementById('lastName').value.trim();
-				var email = document.getElementById('email').value.trim();
-				var message = document.getElementById('message').value.trim();
-				
-				if (!firstName) {
-					alert('Please enter your first name.');
-					return;
-				}
-				
-				if (!lastName) {
-					alert('Please enter your last name.');
-					return;
-				}
-				
-				if (!email) {
-					alert('Please enter your email address.');
-					return;
-				}
-				
-				var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-				if (!emailRegex.test(email)) {
-					alert('Please enter a valid email address.');
-					return;
-				}
-				
-				if (!message) {
-					alert('Please enter your message.');
-					return;
-				}
-				
-				var formData = new FormData(form);
-				
-				fetch('/', {
-					method: 'POST',
-					headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-					body: new URLSearchParams(formData).toString()
-				})
-				.then(function(response) {
-					if (response.ok) {
-						window.location.href = '/thanks';
-					} else {
-						alert('There was a problem submitting the form. Please try again.');
-					}
-				})
-				.catch(function() {
-					alert('There was a problem submitting the form. Please try again.');
-				});
-			});
-		}
-		
-		if (document.readyState === 'loading') {
-			document.addEventListener('DOMContentLoaded', setupForm);
-		} else {
-			setupForm();
-		}
-	})();
-</script>
