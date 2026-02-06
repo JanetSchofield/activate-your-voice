@@ -152,12 +152,17 @@ const savedNavActions = navActions.map((action) => ({
 	.header__menu-chevron {
 		@apply h-4 w-4 transition-transform [.header\_\_menu-item.open_&]:rotate-180;
 	}
-	.header__submenu {
-		@apply left-0 top-full hidden animate-dropdown rounded bg-neutral-500/10 px-4 lg:absolute lg:min-w-48 lg:rounded-t-none lg:p-0 lg:shadow-lg lg:shadow-neutral-950/50 lg:backdrop-blur-sm [.header\_\_menu-item.open_&]:block;
-		background-color: rgba(27, 0, 138, 0.9);
-		margin-top: -0.5rem;
-		padding-top: 0.5rem;
-	}
+	   .header__submenu {
+		   @apply left-0 top-full hidden animate-dropdown rounded px-4 lg:absolute lg:min-w-48 lg:rounded-t-none lg:p-0 lg:shadow-lg lg:shadow-neutral-950/50 lg:backdrop-blur-sm [.header\_\_menu-item.open_&]:block;
+		   background-color: transparent;
+		   margin-top: -0.5rem;
+		   padding-top: 0.5rem;
+	   }
+	   @media (min-width: 1024px) {
+		   .header__submenu {
+			   background-color: rgba(27, 0, 138, 0.9);
+		   }
+	   }
 	.header__submenu-item {
 		@apply hidden [.header\_\_menu-item.open_&]:block;
 	}

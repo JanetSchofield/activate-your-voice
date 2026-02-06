@@ -40,29 +40,51 @@ const { classes, url = 'https://calendly.com/ben-horton-finance-janet/30min' } =
 </Section>
 
 <script define:vars={{url}}>
-	function initCalendly() {
-		// Wait for Calendly library to be available
-		if (!window.Calendly) {
-			setTimeout(initCalendly, 100);
-			return;
-		}
-		
-		// Initialize the widget - it will find the widget div automatically by class
-		window.Calendly.initInlineWidget({
-			url: url,
-			parentElement: document.querySelector('.calendly-inline-widget')
-		});
-	}
-	
-	// Initialize when DOM is ready
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', initCalendly);
-	} else {
-		initCalendly();
-	}
-	
-	// Reinitialize after view transitions
-	document.addEventListener('astro:after-swap', initCalendly);
+   function loadCalendlyScript(callback) {
+	   if (window.Calendly) {
+		   callback();
+		   return;
+	   }
+	   const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
+	   if (existingScript) {
+		   existingScript.addEventListener('load', callback);
+		   return;
+	   }
+	   const script = document.createElement('script');
+	   script.src = 'https://assets.calendly.com/assets/external/widget.js';
+	   script.async = true;
+	   script.onload = callback;
+	   document.head.appendChild(script);
+   }
+
+   function initCalendly() {
+	   if (!window.Calendly) {
+		   // Try again after script loads
+		   setTimeout(initCalendly, 100);
+		   return;
+	   }
+	   // Remove any existing Calendly widget iframe(s) before initializing
+	   const parent = document.querySelector('.calendly-inline-widget');
+	   if (parent) {
+		   // Remove all iframes inside the widget container
+		   Array.from(parent.querySelectorAll('iframe')).forEach((iframe) => iframe.remove());
+	   }
+	   window.Calendly.initInlineWidget({
+		   url: url,
+		   parentElement: parent
+	   });
+   }
+
+   function setupCalendly() {
+	   loadCalendlyScript(initCalendly);
+   }
+
+   if (document.readyState === 'loading') {
+	   document.addEventListener('DOMContentLoaded', setupCalendly);
+   } else {
+	   setupCalendly();
+   }
+   document.addEventListener('astro:after-swap', setupCalendly);
 </script>
 
 <style>
