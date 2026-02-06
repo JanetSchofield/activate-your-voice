@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Hero from '../components/blocks/hero/PageHeader.astro'
+
+const SEO = {
+	title: 'Elocution Lessons / Elocution Courses | Activate Your Voice',
+	description: 'Professional elocution lessons and courses'
+}
+
+const header = {
+	title: 'Elocution Lessons / Elocution Courses',
+	text: 'Coming soon'
+}
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<Hero title={header.title} text={header.text} />
+</Layout>

@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Hero from '../components/blocks/hero/PageHeader.astro'
+
+const SEO = {
+	title: 'Privacy Policy | Activate Your Voice',
+	description: 'Privacy policy for Activate Your Voice'
+}
+
+const header = {
+	title: 'Privacy Policy',
+	text: 'Coming soon'
+}
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<Hero title={header.title} text={header.text} />
+</Layout>

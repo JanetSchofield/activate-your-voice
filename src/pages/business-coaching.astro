@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Hero from '../components/blocks/hero/PageHeader.astro'
+
+const SEO = {
+	title: 'Business Coaching | Activate Your Voice',
+	description: 'Professional business coaching services'
+}
+
+const header = {
+	title: 'Business Coaching',
+	text: 'Coming soon'
+}
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<Hero title={header.title} text={header.text} />
+</Layout>
