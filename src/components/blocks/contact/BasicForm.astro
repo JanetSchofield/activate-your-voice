@@ -45,8 +45,13 @@ const { classes } = Astro.props
 </Card>
 
 <script>
-	const form = document.getElementById('contact-form') as HTMLFormElement;
-	if (form) {
+	document.addEventListener('DOMContentLoaded', function() {
+		const form = document.getElementById('contact-form') as HTMLFormElement;
+		if (!form) {
+			console.error('Contact form not found');
+			return;
+		}
+		
 		form.setAttribute('data-netlify', 'true');
 		form.addEventListener('submit', async (e) => {
 			e.preventDefault();
@@ -103,5 +108,5 @@ const { classes } = Astro.props
 				alert('There was a problem submitting the form. Please try again.');
 			}
 		});
-	}
+	});
 </script>
