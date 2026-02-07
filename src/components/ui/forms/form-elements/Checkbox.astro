@@ -1,0 +1,77 @@
+---
+// Checkbox input
+// ------------
+// Description: Custom styled checkbox with a smooth transition.
+// Properties:
+// - id: The id of the checkbox
+// - label: The label text (optional, can use slot)
+// - name: The name of the checkbox
+// - required: Whether the checkbox is required
+// - checked: Whether the checkbox is checked (default: false)
+// - classes: Additional classes
+
+type Props = {
+	id: string
+	name?: string
+	label?: string
+	required?: boolean
+	checked?: boolean
+	classes?: string
+}
+
+const { id, name, label, required, checked = false, classes } = Astro.props
+---
+
+<div class:list={['checkbox-container flex items-start gap-3', classes]}>
+	<div class="relative flex h-6 w-6 shrink-0 items-center justify-center">
+		<input
+			type="checkbox"
+			id={id}
+			name={name || id}
+			required={required}
+			checked={checked}
+			class="peer h-6 w-6 cursor-pointer appearance-none rounded-lg border-2 border-neutral-300 bg-white transition-all duration-300 checked:border-primary-500 checked:bg-primary-500 hover:border-primary-400 dark:border-neutral-600 dark:bg-neutral-800 focus:outline-none focus:ring-4 focus:ring-primary-500/10"
+		/>
+		<svg
+			class="pointer-events-none absolute h-4 w-4 scale-0 text-white transition-all duration-300 ease-out peer-checked:scale-100 peer-checked:rotate-0 -rotate-12"
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			stroke-width="4"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+		>
+			<polyline points="20 6 9 17 4 12"></polyline>
+		</svg>
+	</div>
+	<label for={id} class="cursor-pointer text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 select-none pt-0.5">
+		{label || <slot />}
+	</label>
+</div>
+
+<style>
+	/* Subtle bounce animation for the checkmark */
+	input:checked + svg {
+		animation: checkmark-bounce 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	}
+
+	@keyframes checkmark-bounce {
+		0% {
+			transform: scale(0) rotate(-10deg);
+			opacity: 0;
+		}
+		50% {
+			transform: scale(1.2) rotate(5deg);
+		}
+		100% {
+			transform: scale(1) rotate(0deg);
+			opacity: 1;
+		}
+	}
+
+	/* Scale effect for the checkbox itself on click */
+	input:active {
+		transform: scale(0.9);
+	}
+</style>

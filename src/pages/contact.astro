@@ -30,6 +30,8 @@ const header = {
 	/>
 </Layout>
 
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 <script>
 	// Form submission handling with custom validation
 	function setupForm() {
@@ -100,29 +102,67 @@ const header = {
 				});
 			}
 		});
+
+		// Terms and Conditions checkbox validation
+		const termsCheckbox = document.getElementById('terms') as HTMLInputElement;
+		if (termsCheckbox && !termsCheckbox.checked) {
+			errors.push({
+				field: 'terms',
+				message: 'You must accept the terms and privacy policy'
+			});
+		}
+
+		// Google reCAPTCHA validation
+		// @ts-ignore
+		if (typeof grecaptcha !== 'undefined') {
+			// @ts-ignore
+			const response = grecaptcha.getResponse();
+			if (!response) {
+				errors.push({
+					field: 'g-recaptcha-response',
+					message: 'Please complete the reCAPTCHA'
+				});
+			}
+		}
 		
 		return errors;
 	}
-	
+
 	function getLabelText(field: HTMLInputElement | HTMLTextAreaElement): string {
 		const label = document.querySelector(`label[for="${field.id}"]`);
+		// Special case for checkbox label which has nested HTML
+		if (field.type === 'checkbox') return 'Terms and Privacy Policy';
 		return label?.textContent?.trim() || field.name;
 	}
-	
+
 	function displayFormErrors(form: HTMLFormElement, errors: Array<{field: string, message: string}>) {
 		errors.forEach(({field, message}) => {
-			const fieldElement = document.getElementById(field);
+			let fieldElement = document.getElementById(field);
+			
+			// If field is reCAPTCHA, we try to find the container
+			if (field === 'g-recaptcha-response') {
+				fieldElement = document.querySelector('.g-recaptcha');
+			}
+			
 			if (fieldElement) {
-				// Add red border to field
-				fieldElement.classList.add('error');
+				// Add red border to field (except for recaptcha/terms where it's messy)
+				if (field !== 'g-recaptcha-response' && field !== 'terms') {
+					fieldElement.classList.add('error');
+				}
 				
 				// Create error message element
 				const errorDiv = document.createElement('div');
 				errorDiv.className = 'form-error text-sm text-red-500 mt-2 flex items-center gap-2';
 				errorDiv.innerHTML = `<svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg><span>${message}</span>`;
 				
-				// Insert error message after the field
-				fieldElement.parentElement?.appendChild(errorDiv);
+				// Insert error message after the field or its parent wrapper
+				if (field === 'terms') {
+					fieldElement.closest('.flex')?.after(errorDiv);
+				} else if (field === 'g-recaptcha-response') {
+					fieldElement.after(errorDiv);
+				} else {
+					fieldElement.parentElement?.appendChild(errorDiv);
+				}
 			}
 		});
 	}

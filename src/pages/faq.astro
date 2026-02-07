@@ -3,52 +3,45 @@
 // - Layout
 import Layout from '../layouts/Layout.astro'
 // - UI
-import Hero from '../components/blocks/hero/PageHeader.astro'
-import FAQ from '../components/blocks/FAQ/FaqSticky.astro'
-import TextImage from '../components/blocks/basic/TextImage.astro'
-import CTA from '../components/blocks/CTA/BasicDark.astro'
+import FAQ from '../components/ui/Accordion.astro'
+import Section from '../components/ui/Section.astro'
+import Row from '../components/ui/Row.astro'
+import Col from '../components/ui/Col.astro'
+import Card from '../components/ui/cards/partials/Card.astro'
 
 // Data
 import faqData from '../data/json-files/faqData.json'
-// - FAQ Categories
-const faqPricing = faqData.filter((faq) => faq.category === 'pricing')
-const faqIntegrations = faqData.filter((faq) => faq.category === 'integrations')
 
-// Content
-import faqImage1 from '../assets/faq/faq-01.png'
 // - SEO
 const SEO = {
-	title: 'Activate Your Voice | Get Your Questions Answered',
+	title: 'FAQs | Activate Your Voice',
 	description:
-		'Find answers to all your questions about voice coaching, speech training, lessons, and pricing. Discover how Activate Your Voice can help you unlock your best voice.'
-}
-// - Page Header
-const header = {
-	title: 'Get Answers to Your <strong>Activate Your Voice</strong> Questions.',
-	text: 'Find answers to common questions about Activate Your Voice '
+		'Find answers to common questions about voice coaching, speech training, and acting lessons at Activate Your Voice.'
 }
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
-	<Hero title={header.title} text={header.text} />
-	<FAQ
-		title="Understanding Our Pricing Plans"
-		text="Get all the details on Activate Your Voice's pricing plans. Learn about the costs, discounts, and subscription options to find the best plan that fits your needs and budget."
-		data={faqPricing}
-	/>
-	<TextImage
-		title="Why Activate Your Voice's Pricing Plans Offer Great Value"
-		text="At Activate Your Voice, we believe in providing exceptional value at every price point. Our pricing plans are designed to cater to a variety of needs, from individuals and small teams to large enterprises. Each plan includes access to our powerful features, seamless integrations, and top-notch customer support. "
-		image={faqImage1}
-		mobileImage={faqImage1}
-		imagePosition="left"
-		offsetImage
-		classes="bg-neutral-50 dark:bg-neutral-900 lg:!py-64"
-	/>
-	<FAQ
-		title="Integrations Made Easy"
-		text="Discover how Activate Your Voice seamlessly integrates with your favorite tools and platforms. From Google Calendar to Slack, find out how to connect and enhance your learning with powerful integrations."
-		data={faqIntegrations}
-	/>
-	<CTA />
+	<!-- Hero Section -->
+	<div style="position:relative;width:100vw;max-width:100%;overflow:hidden;height:320px;">
+		<img src="/public-speaking.jpg" alt="FAQ banner" style="width:100%;height:100%;object-fit:cover;object-position:center;" />
+		<div style="position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(229,231,235,0.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);"></div>
+		<div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:1rem;">
+			<h1 class="text-4xl lg:text-6xl font-bold text-neutral-900 text-center mb-4">FAQs</h1>
+			<p class="text-lg lg:text-xl text-neutral-700 text-center max-w-2xl leading-relaxed">
+				Frequently asked questions about our services. Can’t see your query? Reach out to us directly in <a href="/contact" class="text-primary-500 hover:underline">contact</a> or by email at <a href="mailto:help@activateyourvoice.co.uk" class="text-primary-500 hover:underline">help@activateyourvoice.co.uk</a>
+			</p>
+		</div>
+	</div>
+
+	<Section id="faq-list" padding="bottom" classes="pt-8 lg:pt-12">
+		<Row>
+			<Col span="12">
+				<Card classes="divide-y divide-neutral-100 dark:divide-neutral-800 shadow-xl shadow-neutral-200/50 dark:shadow-black/20 max-w-6xl mx-auto">
+					{faqData.map((faq: any) => (
+						<FAQ title={faq.question} text={faq.reply} open={faq.open} />
+					))}
+				</Card>
+			</Col>
+		</Row>
+	</Section>
 </Layout>

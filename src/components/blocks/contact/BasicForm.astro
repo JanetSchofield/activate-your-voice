@@ -14,6 +14,7 @@ import Form from '../../ui/forms/Form.astro'
 import FormField from '../../ui/forms/partials/FormField.astro'
 import InputField from '../../ui/forms/form-elements/InputField.astro'
 import TextArea from '../../ui/forms/form-elements/TextArea.astro'
+import Checkbox from '../../ui/forms/form-elements/Checkbox.astro'
 import Button from '../../ui/Button.astro'
 
 // Props
@@ -39,7 +40,18 @@ const { classes } = Astro.props
 				<InputField type="tel" id="phone" name="phone" label="Phone Number" required />
 			</FormField>
 			<FormField><TextArea id="message" name="message" label="Your Message" required /></FormField>
-			<Button style="primary" type="submit">Submit</Button>
+			
+			<div class="my-6">
+				<Checkbox id="terms" name="terms" required>
+					Check here if you accept our terms (<a href="/privacy-policy" class="text-primary-500 hover:underline">Privacy Policy</a>)
+				</Checkbox>
+			</div>
+
+			<div class="mb-6">
+				<div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+			</div>
+
+			<Button style="primary" type="submit" classes="w-full lg:w-auto">Submit</Button>
 		</Form>
 	</CardBody>
 </Card>
