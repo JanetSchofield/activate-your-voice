@@ -1,0 +1,162 @@
+---
+// Testimonial Slider Section
+// ------------
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import Testimonial from '../../ui/Testimonial.astro'
+
+const testimonials = [
+  {
+    quote: "The elocution lessons have transformed my confidence in business meetings. The focus on clarity and delivery was exactly what I needed to speak more authoritatively.",
+    name: "Mark Donaldson",
+    role: "Corporate Executive",
+    stars: 5
+  },
+  {
+    quote: "I never thought I could overcome my fear of public speaking, but Activate Your Voice gave me the tools to succeed. The sessions were encouraging and practical.",
+    name: "Sarah Jenkins",
+    role: "Professional Speaker",
+    stars: 5
+  },
+  {
+    quote: "The one-to-one coaching was exactly what I needed to prepare for my drama exams. A fantastic experience that helped me achieve a high distinction!",
+    name: "James Robertson",
+    role: "Student",
+    stars: 5
+  },
+  {
+    quote: "Working with the team at Activate Your Voice has been a game-changer for my vocal delivery and pitch. They really understand how to unlock your best voice.",
+    name: "Emily Walters",
+    role: "Podcast Host",
+    stars: 5
+  },
+  {
+    quote: "Highly professional and tailored coaching. My communication skills have improved significantly, which has had a direct positive impact on my career.",
+    name: "David Chen",
+    role: "Business Consultant",
+    stars: 5
+  }
+];
+---
+
+<Section id="testimonials" padding="none" classes="bg-neutral-50/50 py-6 lg:py-10 overflow-hidden">
+	<Row classes="mb-8 lg:mb-12">
+		<Col span="12" align="center" classes="max-w-4xl mx-auto">
+			<p class="uppercase tracking-[0.3em] text-[10px] lg:text-[11px] font-bold text-neutral-400 mb-4">
+				Success stories
+			</p>
+			<h2 class="text-3xl lg:text-4xl font-bold text-[#1B008A] tracking-tight">
+				What our <span class="text-primary-500 font-light">clients say</span>
+			</h2>
+		</Col>
+	</Row>
+	
+	<div class="relative group container mx-auto px-6 lg:px-12">
+		<!-- Navigation Buttons -->
+		<button 
+			id="testimonial-prev"
+			class="absolute -left-2 lg:left-0 top-1/2 -translate-y-1/2 z-30 bg-white p-3 rounded-full shadow-lg text-[#1B008A] hover:bg-primary-500 hover:text-white transition-all opacity-0 group-hover:opacity-100 hidden lg:block"
+			aria-label="Previous testimonial"
+		>
+			<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+			</svg>
+		</button>
+		<button 
+			id="testimonial-next"
+			class="absolute -right-2 lg:right-0 top-1/2 -translate-y-1/2 z-30 bg-white p-3 rounded-full shadow-lg text-[#1B008A] hover:bg-primary-500 hover:text-white transition-all opacity-0 group-hover:opacity-100 hidden lg:block"
+			aria-label="Next testimonial"
+		>
+			<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+			</svg>
+		</button>
+
+		<!-- Horizontal Scroll Container -->
+		<div 
+			id="testimonial-container"
+			class="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-8 pt-4 scroll-smooth"
+		>
+			{testimonials.map((testimonial) => (
+				<div class="flex-none w-[300px] sm:w-[350px] lg:w-[400px] snap-start">
+					<div class="bg-white p-8 rounded-2xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] border border-neutral-100/50 h-full flex flex-col justify-between">
+						<div>
+							<div class="flex gap-1 mb-6">
+								{[...Array(testimonial.stars)].map(() => (
+									<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary-500" viewBox="0 0 20 20" fill="currentColor">
+										<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+									</svg>
+								))}
+							</div>
+							<p class="text-neutral-600 text-sm italic font-medium leading-relaxed mb-6">
+								"{testimonial.quote}"
+							</p>
+						</div>
+						<div class="flex items-center gap-4 mt-auto">
+							<div class="w-10 h-10 bg-primary-100/50 rounded-full flex items-center justify-center text-primary-600 font-bold text-xs uppercase">
+								{testimonial.name.split(' ').map(n => n[0]).join('')}
+							</div>
+							<div>
+								<h4 class="text-[#1B008A] font-bold text-sm leading-tight">{testimonial.name}</h4>
+								<p class="text-neutral-400 text-[10px] uppercase tracking-wider font-bold">{testimonial.role}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			))}
+		</div>
+	</div>
+</Section>
+
+<style>
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+	.no-scrollbar {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+</style>
+
+<script>
+	function initTestimonialSlider() {
+		const container = document.getElementById('testimonial-container');
+		const prevBtn = document.getElementById('testimonial-prev');
+		const nextBtn = document.getElementById('testimonial-next');
+
+		if (container && prevBtn && nextBtn) {
+			const scrollAmount = 400;
+
+			nextBtn.addEventListener('click', () => {
+				container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+			});
+
+			prevBtn.addEventListener('click', () => {
+				container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+			});
+
+			const toggleButtons = () => {
+				if (container.scrollLeft <= 5) {
+					prevBtn.classList.add('lg:opacity-0', 'lg:pointer-events-none');
+				} else {
+					prevBtn.classList.remove('lg:opacity-0', 'lg:pointer-events-none');
+				}
+
+				if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
+					nextBtn.classList.add('lg:opacity-0', 'lg:pointer-events-none');
+				} else {
+					nextBtn.classList.remove('lg:opacity-0', 'lg:pointer-events-none');
+				}
+			};
+
+			container.addEventListener('scroll', toggleButtons);
+			toggleButtons();
+			window.addEventListener('resize', toggleButtons);
+		}
+	}
+
+	document.addEventListener('DOMContentLoaded', initTestimonialSlider);
+	document.addEventListener('astro:page-load', initTestimonialSlider);
+	initTestimonialSlider();
+</script>

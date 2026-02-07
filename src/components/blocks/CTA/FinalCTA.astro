@@ -1,0 +1,42 @@
+---
+// Final CTA Section
+// ------------
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+---
+
+<Section id="final-cta" padding="none" classes="bg-white py-8 lg:py-12">
+	<div class="container mx-auto px-6 lg:px-12">
+		<div class="relative overflow-hidden rounded-3xl bg-[#1B008A] p-8 md:p-16 lg:p-20 shadow-2xl">
+			<!-- Animated Background Glows -->
+			<div class="absolute -top-24 -right-24 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl opacity-50"></div>
+			<div class="absolute -bottom-24 -left-24 w-72 h-72 bg-primary-400/10 rounded-full blur-3xl opacity-30"></div>
+			
+			<Row classes="relative z-10 items-center">
+				<Col span="12" classes="text-center">
+					<p class="uppercase tracking-[0.3em] text-[10px] lg:text-[11px] font-bold text-primary-200 mb-6">
+						Take the first step
+					</p>
+					<h2 class="text-3xl md:text-4xl lg:text-5xl font-light !text-white tracking-tight mb-8 leading-tight max-w-4xl mx-auto">
+						Are you ready to start your <span class="text-primary-300 font-bold italic lg:not-italic">vocal journey</span> and become a <span class="text-primary-300 font-bold italic lg:not-italic">confident speaker?</span>
+					</h2>
+					<div class="flex flex-col sm:flex-row gap-6 justify-center mt-10">
+						<a 
+							href="/contact" 
+							class="inline-flex items-center justify-center px-10 py-5 text-base font-bold text-white hover:text-white bg-primary-500 rounded-full hover:bg-primary-600 transition-all transform hover:scale-105 shadow-xl shadow-black/20"
+						>
+							Book Your Free Intro Call
+						</a>
+						<a 
+							href="/the-team" 
+							class="inline-flex items-center justify-center px-10 py-5 text-base font-bold text-white border-2 border-white/20 rounded-full hover:bg-white/10 transition-all"
+						>
+							Meet The Team
+						</a>
+					</div>
+				</Col>
+			</Row>
+		</div>
+	</div>
+</Section>

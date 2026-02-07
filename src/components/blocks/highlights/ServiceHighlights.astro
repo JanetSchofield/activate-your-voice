@@ -24,7 +24,7 @@ import Col from '../../ui/Col.astro'
 					</p>
 					<a 
 						href="/elocution" 
-						class="inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white bg-primary-400 rounded-lg hover:bg-primary-500 transition-all hover:shadow-lg hover:-translate-y-0.5"
+						class="inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white hover:text-white bg-primary-400 rounded-lg hover:bg-primary-600 transition-all hover:shadow-lg hover:-translate-y-0.5"
 					>
 						Elocution lessons
 					</a>
@@ -69,10 +69,83 @@ import Col from '../../ui/Col.astro'
 					</p>
 					<a 
 						href="/public-speaking-corporate" 
-						class="inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white bg-primary-400 rounded-lg hover:bg-primary-500 transition-all hover:shadow-lg hover:-translate-y-0.5 text-center"
+						class="inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white hover:text-white bg-primary-400 rounded-lg hover:bg-primary-600 transition-all hover:shadow-lg hover:-translate-y-0.5 text-center"
 					>
 						Corporate Coaching & Public Speaking Training
 					</a>
+				</div>
+			</Col>
+		</Row>
+	</div>
+
+	<!-- Highlight 3: Speech & Drama -->
+	<div class="pt-8 lg:pt-12 pb-2 lg:pb-4">
+		<Row classes="items-center">
+			<Col span="6" classes="pr-0 lg:pr-12 order-2 lg:order-1 mt-8 lg:mt-0">
+				<div class="max-w-xl mx-auto lg:mx-0">
+					<h2 class="text-3xl lg:text-4xl font-bold text-[#1B008A] tracking-tight mb-4 leading-[1.1]">
+						Learn to <span class="text-primary-500 font-light">enunciate clearly</span> <br class="hidden lg:block" /> and <span class="text-primary-500 font-light">confidently</span>
+					</h2>
+					<p class="text-neutral-500 text-sm font-medium leading-relaxed mb-8 max-w-lg">
+						We offer individual tuition in Speech and Drama for all ages from six upwards. Sessions are offered with Janet, who is a fully qualified Speech and Drama teacher and DBS checked. She has over 30 years' experience of working with children and adults.
+					</p>
+					<a 
+						href="/speech-drama" 
+						class="inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white hover:text-white bg-primary-400 rounded-lg hover:bg-primary-600 transition-all hover:shadow-lg hover:-translate-y-0.5"
+					>
+						Speech & Drama Tuition
+					</a>
+				</div>
+			</Col>
+			<Col span="6" classes="order-1 lg:order-2 px-0">
+				<div class="relative group overflow-hidden rounded-2xl lg:rounded-none">
+					<img 
+						src="/shutterstock_1968794758-scaled.jpg" 
+						alt="Child performing speech and drama" 
+						class="w-full aspect-[4/3] lg:aspect-video h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+					/>
+				</div>
+			</Col>
+		</Row>
+	</div>
+
+	<!-- Highlight 4: Who We Work With -->
+	<div class="pt-2 lg:pt-4 pb-6 lg:pb-10 bg-neutral-50/30">
+		<Row classes="items-center">
+			<Col span="6" classes="px-0">
+				<div class="relative group overflow-hidden rounded-2xl lg:rounded-none">
+					<img 
+						src="/shutterstock_1361250578-scaled-uai-1920x1440.jpg" 
+						alt="Professional group meeting" 
+						class="w-full aspect-[4/3] lg:aspect-video h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+					/>
+				</div>
+			</Col>
+			<Col span="6" classes="pl-0 lg:pl-20 mt-8 lg:mt-0 px-6 lg:px-0">
+				<div class="max-w-xl mx-auto lg:mx-0">
+					<p class="uppercase tracking-[0.3em] text-[10px] lg:text-[11px] font-bold text-neutral-400 mb-4">
+						Become confident in auditions
+					</p>
+					<h2 class="text-3xl lg:text-4xl font-bold text-[#1B008A] tracking-tight mb-6 leading-[1.1]">
+						We work with <span class="text-primary-500 font-light">people</span> <br class="hidden lg:block" /> from all walks of life:
+					</h2>
+					<ul class="space-y-3">
+						{[
+							"Business clients who wish to speak clearer, authoritatively and with expression at work.",
+							"Those who mumble or speak too fast.",
+							"Individuals who wish to have more confidence and improve their vocal skills.",
+							"Those who want to create a connection and rapport with clients, colleagues or audience members through speech.",
+							"Non-native English speakers who have issues with pronunciation.",
+							"People who wish to soften their accent."
+						].map((item) => (
+							<li class="flex items-start text-neutral-500 text-sm font-medium leading-tight">
+								<svg class="w-4 h-4 text-[#1B008A] mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+								</svg>
+								{item}
+							</li>
+						))}
+					</ul>
 				</div>
 			</Col>
 		</Row>
