@@ -8,33 +8,81 @@ import Testimonial from '../../ui/Testimonial.astro'
 
 const testimonials = [
   {
-    quote: "The elocution lessons have transformed my confidence in business meetings. The focus on clarity and delivery was exactly what I needed to speak more authoritatively.",
-    name: "Mark Donaldson",
-    role: "Corporate Executive",
+    quote: "Voice coaching with Janet has been a revelation to me! I’ve learned so much in a short space of time and am making steady progress. I can hear that my voice is stronger and I’m now speaking from the correct part of my mouth(!). Janet is so knowledgeable, patient and a lovely person who now feels like a friend.",
+    name: "Keren Chamberlain",
+    role: "",
     stars: 5
   },
   {
-    quote: "I never thought I could overcome my fear of public speaking, but Activate Your Voice gave me the tools to succeed. The sessions were encouraging and practical.",
-    name: "Sarah Jenkins",
-    role: "Professional Speaker",
+    quote: "I regularly work with Janet and practice with speech exercises has made my voice stronger, clearer and more modulated. People have told me that my communication is far more effective.",
+    name: "Ingrid",
+    role: "Sweden",
     stars: 5
   },
   {
-    quote: "The one-to-one coaching was exactly what I needed to prepare for my drama exams. A fantastic experience that helped me achieve a high distinction!",
-    name: "James Robertson",
-    role: "Student",
+    quote: "Our team coaching session taught us important business principles in a fun and memorable way.",
+    name: "EM",
+    role: "Macclesfield",
     stars: 5
   },
   {
-    quote: "Working with the team at Activate Your Voice has been a game-changer for my vocal delivery and pitch. They really understand how to unlock your best voice.",
-    name: "Emily Walters",
-    role: "Podcast Host",
+    quote: "The techniques Janet has taught me have enabled me to communicate not just more effectively but more confidently. Customers and colleagues understand me much more clearly, which is vital for my Sales role.",
+    name: "Sam Cordon",
+    role: "Sales Executive",
     stars: 5
   },
   {
-    quote: "Highly professional and tailored coaching. My communication skills have improved significantly, which has had a direct positive impact on my career.",
-    name: "David Chen",
-    role: "Business Consultant",
+    quote: "My daughter enjoys her weekly lessons and is keen to achieve and progress further. I would thoroughly recommend to anyone wanting to gain confidence in speaking and achieve results quickly",
+    name: "Kate Edwardson",
+    role: "",
+    stars: 5
+  },
+  {
+    quote: "Janet’s coaching and insight are essential to helping me deliver effectively to the business",
+    name: "Veronica",
+    role: "FTSE Top 100 Company",
+    stars: 5
+  },
+  {
+    quote: "With Janet’s help, my daughter has secured a place at Laine Theatre Arts in Epsom – her first choice. We are very grateful to ‘Activate Your Voice’ for their expertise and support and would not hesitate to recommend them",
+    name: "Suzanne Lynn",
+    role: "Drama School tuition",
+    stars: 5
+  },
+  {
+    quote: "Janet’s voice coaching is outstanding. After only a few weeks, people realised the difference in my voice and the way I present. It is a true pleasure working with Janet",
+    name: "Sebastian",
+    role: "Scientist at a pharmaceutical company",
+    stars: 5
+  },
+  {
+    quote: "Janet’s been a fantastic coach. I originally reached out a few months back to develop my vocal and reading ability. We started off with articulation, pronunciation and breathing exercises which I now practice on a day to day basis. These collectively have helped develop my vocal resonance and clarity when speaking.",
+    name: "Ben Horton",
+    role: "Software Engineer",
+    stars: 5
+  },
+  {
+    quote: "Janet is a very confident voice coach. She has taught me a wide range of vocal exercises and techniques to improve my spoken English and clarity of my voice, as well as the modulation. As a foreign speaker I have found practicing the phonetic sounds invaluable. Janet has improved my confidence and I'd highly recommend her",
+    name: "Kongrit Khamkhoon",
+    role: "",
+    stars: 5
+  },
+  {
+    quote: "We've been very pleased with the sessions our son has been having with Janet. We feel as though his confidence has really come on and Janet does a great job keeping him engaged. We weren't sure about switching to online and although nothing beats face to face, it's remarkable how it can work well online too",
+    name: "Debble Powell",
+    role: "",
+    stars: 5
+  },
+  {
+    quote: "From only a few lessons I noticed improvement in my speech. I became aware of using the techniques Janet has taught me to build a better rapport when speaking on the phone. I would highly recommend recommend Janet, she is competent and enthusiastic",
+    name: "Ash Burdett",
+    role: "",
+    stars: 5
+  },
+  {
+    quote: "I spent a number of years with Janet for both Speech and Drama lessons. These have proved invaluable in my work and also in my spare time. I have no reservations in recommending Janet, my time with her was both enjoyable and educational",
+    name: "Christopher Bluff",
+    role: "",
     stars: 5
   }
 ];
@@ -82,7 +130,7 @@ const testimonials = [
 				<div class="flex-none w-[300px] sm:w-[350px] lg:w-[400px] snap-start">
 					<div class="bg-white p-8 rounded-2xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] border border-neutral-100/50 h-full flex flex-col justify-between">
 						<div>
-							<p class="text-neutral-600 text-sm italic font-medium leading-relaxed mb-10">
+							<p class="text-neutral-600 text-sm italic font-medium leading-relaxed mb-10 whitespace-pre-line">
 								"{testimonial.quote}"
 							</p>
 						</div>
@@ -91,8 +139,8 @@ const testimonials = [
 								{testimonial.name.split(' ').map(n => n[0]).join('')}
 							</div>
 							<div>
-								<h4 class="text-[#1B008A] font-bold text-sm leading-tight">{testimonial.name}</h4>
-								<p class="text-neutral-400 text-[10px] uppercase tracking-wider font-bold">{testimonial.role}</p>
+								<h4 class="text-[#1B008A] font-bold text-sm leading-none">{testimonial.name}</h4>
+								{testimonial.role && <p class="text-neutral-400 text-[10px] uppercase tracking-wider font-bold mt-0.5">{testimonial.role}</p>}
 							</div>
 						</div>
 					</div>
