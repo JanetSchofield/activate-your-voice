@@ -173,6 +173,12 @@ const header = {
 	
 	async function submitForm(form: HTMLFormElement) {
 		const formData = new FormData(form);
+		const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+		
+		if (submitButton) {
+			submitButton.disabled = true;
+			submitButton.textContent = 'Sending...';
+		}
 		
 		// Ensure reCAPTCHA response is included
 		// @ts-ignore
@@ -186,7 +192,7 @@ const header = {
 		}
 
 		try {
-			const response = await fetch(window.location.pathname, {
+			const response = await fetch(form.action || window.location.pathname, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 				body: new URLSearchParams(formData as any).toString()
@@ -195,11 +201,26 @@ const header = {
 			if (response.ok) {
 				window.location.href = '/thanks';
 			} else {
-				alert('There was a problem submitting the form. Please try again.');
+				const errorText = await response.text();
+				console.error('Form submission failed:', response.status, errorText);
+				alert('There was a problem submitting the form. Please try again or email us directly.');
+				
+				// Reset for another attempt
+				if (submitButton) {
+					submitButton.disabled = false;
+					submitButton.textContent = 'Submit';
+				}
+				// @ts-ignore
+				if (typeof grecaptcha !== 'undefined') grecaptcha.reset();
 			}
 		} catch (error) {
 			console.error('Form submission error:', error);
-			alert('There was a problem submitting the form. Please try again.');
+			alert('Network error. Please check your connection and try again.');
+			
+			if (submitButton) {
+				submitButton.disabled = false;
+				submitButton.textContent = 'Submit';
+			}
 		}
 	}
 	

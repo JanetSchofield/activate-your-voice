@@ -1,18 +1,252 @@
 ---
+// Components
+// - Layout
 import Layout from '../layouts/Layout.astro'
-import Hero from '../components/blocks/hero/PageHeader.astro'
+// - UI
+import FeedbackHero from '../components/blocks/hero/FeedbackHero.astro'
 
+// Content
+// - SEO
 const SEO = {
-	title: 'Feedback | Activate Your Voice',
-	description: 'Send us your feedback'
+	title: 'Activate Your Voice | Feedback Form',
+	description:
+		'Feel free to leave a review of our services using the form below, thank you.'
 }
-
+// - Page Header
 const header = {
-	title: 'Feedback',
-	text: 'Coming soon'
+	title: 'Feedback Form',
+	text: "Feel free to leave a review of our services using the form below, thank you."
 }
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
-	<Hero title={header.title} text={header.text} />
+	<FeedbackHero
+		title={header.title}
+		text={header.text}
+		id="feedback"
+		classes="bg-white dark:bg-neutral-950"
+	/>
 </Layout>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<script>
+	// Form submission handling with custom validation
+	function setupForm() {
+		const form = document.getElementById('contact-form') as HTMLFormElement;
+		
+		if (form) {
+			// Remove default browser validation popups
+			form.setAttribute('novalidate', 'true');
+			
+			form.addEventListener('submit', async (e) => {
+				e.preventDefault();
+				
+				// Clear previous error messages
+				document.querySelectorAll('.form-error').forEach(el => el.remove());
+				
+				// Validate form manually
+				const errors = validateForm(form);
+				
+				if (errors.length > 0) {
+					// Add class to show validation errors
+					form.classList.add('is-submitted');
+					
+					// Display error messages
+					displayFormErrors(form, errors);
+					return;
+				}
+				
+				// Form is valid, proceed with submission
+				form.classList.remove('is-submitted');
+				await submitForm(form);
+			});
+		}
+	}
+	
+	function validateForm(form: HTMLFormElement): Array<{field: string, message: string}> {
+		const errors: Array<{field: string, message: string}> = [];
+		const inputs = form.querySelectorAll('[required]') as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
+		const processedRadios = new Set();
+		
+		inputs.forEach((field) => {
+			if (field.type === 'radio') {
+				if (processedRadios.has(field.name)) return;
+				processedRadios.add(field.name);
+				
+				const checked = form.querySelector(`input[name="${field.name}"]:checked`);
+				if (!checked) {
+					errors.push({
+						field: field.name,
+						message: `Please select a rating`
+					});
+				}
+				return;
+			}
+
+			const value = field.value.trim();
+			const fieldName = getLabelText(field);
+			
+			// Check if field is empty
+			if (!value) {
+				errors.push({
+					field: field.id,
+					message: `${fieldName} is required`
+				});
+				return;
+			}
+			
+			// Email validation
+			if (field.type === 'email') {
+				const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+				if (!emailRegex.test(value)) {
+					errors.push({
+						field: field.id,
+						message: 'Please enter a valid email address'
+					});
+				}
+			}
+			
+			// Phone number validation (if has value)
+			if (field.type === 'tel' && value && !/^[0-9\-\+\(\)\s]+$/.test(value)) {
+				errors.push({
+					field: field.id,
+					message: 'Please enter a valid phone number'
+				});
+			}
+		});
+
+		// Terms and Conditions checkbox validation
+		const termsCheckbox = document.getElementById('terms') as HTMLInputElement;
+		if (termsCheckbox && !termsCheckbox.checked) {
+			errors.push({
+				field: 'terms',
+				message: 'You must accept the terms and privacy policy'
+			});
+		}
+
+		// Google reCAPTCHA validation
+		// @ts-ignore
+		if (typeof grecaptcha !== 'undefined') {
+			try {
+				// @ts-ignore
+				const response = grecaptcha.getResponse();
+				if (!response) {
+					errors.push({
+						field: 'g-recaptcha-response',
+						message: 'Please complete the reCAPTCHA'
+					});
+				}
+			} catch (e) {
+				console.warn('reCAPTCHA not initialized yet');
+			}
+		}
+		
+		return errors;
+	}
+
+	function getLabelText(field: HTMLInputElement | HTMLTextAreaElement): string {
+		const label = document.querySelector(`label[for="${field.id}"]`);
+		// Special case for checkbox label which has nested HTML
+		if (field.type === 'checkbox') return 'Terms and Privacy Policy';
+		return label?.textContent?.trim() || field.name;
+	}
+
+	function displayFormErrors(form: HTMLFormElement, errors: Array<{field: string, message: string}>) {
+		errors.forEach(({field, message}) => {
+			let fieldElement = document.getElementById(field);
+			
+			// Handle radio groups or dynamic fields
+			if (!fieldElement) {
+				fieldElement = form.querySelector(`input[name="${field}"]`)?.closest('.rating-input') || null;
+			}
+			
+			// If field is reCAPTCHA, we try to find the container
+			if (field === 'g-recaptcha-response') {
+				fieldElement = document.querySelector('.g-recaptcha');
+			}
+			
+			if (fieldElement) {
+				// Add red border to field (except for recaptcha/terms where it's messy)
+				if (field !== 'g-recaptcha-response' && field !== 'terms') {
+					fieldElement.classList.add('error');
+				}
+				
+				// Create error message element
+				const errorDiv = document.createElement('div');
+				errorDiv.className = 'form-error text-sm text-red-500 mt-2 flex items-center gap-2';
+				errorDiv.innerHTML = `<svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg><span>${message}</span>`;
+				
+				// Insert error message after the field or its parent wrapper
+				if (field === 'terms') {
+					fieldElement.closest('.flex')?.after(errorDiv);
+				} else if (field === 'g-recaptcha-response') {
+					fieldElement.after(errorDiv);
+				} else {
+					fieldElement.parentElement?.appendChild(errorDiv);
+				}
+			}
+		});
+	}
+	
+	async function submitForm(form: HTMLFormElement) {
+		const formData = new FormData(form);
+		const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+		
+		if (submitButton) {
+			submitButton.disabled = true;
+			submitButton.textContent = 'Sending...';
+		}
+		
+		// Ensure reCAPTCHA response is included
+		// @ts-ignore
+		if (typeof grecaptcha !== 'undefined') {
+			try {
+				// @ts-ignore
+				formData.set('g-recaptcha-response', grecaptcha.getResponse());
+			} catch (e) {
+				console.error('Error getting reCAPTCHA response:', e);
+			}
+		}
+
+		try {
+			const response = await fetch(form.action || window.location.pathname, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+				body: new URLSearchParams(formData as any).toString()
+			});
+			
+			if (response.ok) {
+				window.location.href = form.action || '/thanks-review';
+			} else {
+				const errorText = await response.text();
+				console.error('Form submission failed:', response.status, errorText);
+				alert('There was a problem submitting the form. Please try again or email us directly.');
+				
+				// Reset for another attempt
+				if (submitButton) {
+					submitButton.disabled = false;
+					submitButton.textContent = 'Submit';
+				}
+				// @ts-ignore
+				if (typeof grecaptcha !== 'undefined') grecaptcha.reset();
+			}
+		} catch (error) {
+			console.error('Form submission error:', error);
+			alert('Network error. Please check your connection and try again.');
+			
+			if (submitButton) {
+				submitButton.disabled = false;
+				submitButton.textContent = 'Submit';
+			}
+		}
+	}
+	
+	// Setup form on initial page load
+	document.addEventListener('DOMContentLoaded', setupForm);
+	
+	// Also setup form after view transitions
+	document.addEventListener('astro:after-swap', setupForm);
+	document.addEventListener('astro:page-load', setupForm);
+</script>
+

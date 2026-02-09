@@ -1,0 +1,91 @@
+---
+// Feedback Form
+// ------------
+// Description: A feedback form cloned from the basic contact form.
+// Properties:
+// - classes: Additional classes to be added to the block
+// ------------
+
+// Components
+// - UI
+import Card from '../../ui/cards/partials/Card.astro'
+import CardBody from '../../ui/cards/partials/CardBody.astro'
+import Form from '../../ui/forms/Form.astro'
+import FormField from '../../ui/forms/partials/FormField.astro'
+import InputField from '../../ui/forms/form-elements/InputField.astro'
+import TextArea from '../../ui/forms/form-elements/TextArea.astro'
+import Select from '../../ui/forms/form-elements/Select.astro'
+import RatingInput from '../../ui/forms/form-elements/RatingInput.astro'
+import Checkbox from '../../ui/forms/form-elements/Checkbox.astro'
+import Button from '../../ui/Button.astro'
+
+// Props
+type Props = {
+	classes?: string
+}
+const { classes } = Astro.props
+---
+
+<Card classes={classes}>
+	<CardBody>
+		   <Form name="Feedback" id="contact-form" data-netlify="true" action="/thanks-review" method="post">
+			   <input type="hidden" name="form-name" value="Feedback" />
+			<FormField>
+				<InputField type="text" id="firstName" name="firstName" label="First Name" required />
+				<InputField type="text" id="lastName" name="lastName" label="Last Name" required />
+			</FormField>
+			<FormField>
+				<InputField type="email" id="email" name="email" label="Email" required value="" />
+			</FormField>
+			<FormField>
+				<InputField type="tel" id="phone" name="phone" label="Phone Number" required />
+			</FormField>
+			<FormField>
+				<Select 
+					id="tutor" 
+					name="tutor" 
+					label="Tutor" 
+					required 
+					options={[
+						{ label: 'Janet Schofield', value: 'janet-schofield' },
+						{ label: 'Elise Schofield', value: 'elise-schofield' }
+					]}
+				/>
+			</FormField>
+			<FormField>
+				<Select 
+					id="tuitionType" 
+					name="tuitionType" 
+					label="Tuition Type" 
+					required 
+					options={[
+						{ label: 'Elocution', value: 'elocution' },
+						{ label: 'Speech & Drama', value: 'speech-drama' },
+						{ label: 'Public Speaking & Presentations', value: 'public-speaking' },
+						{ label: 'Corporate & Business Coaching', value: 'corporate' },
+						{ label: 'Acting & Auditions', value: 'acting-auditions' },
+						{ label: 'Exams', value: 'exams' },
+						{ label: 'Voice coaching', value: 'voice-coaching' },
+						{ label: 'Other', value: 'other' }
+					]}
+				/>
+			</FormField>
+			<FormField>
+				<RatingInput id="rating" name="rating" label="Rating" />
+			</FormField>
+			<FormField><TextArea id="review" name="review" label="Your Review" required /></FormField>
+			
+			<div class="my-6">
+				<Checkbox id="terms" name="terms" required>
+					Check here if you accept our terms (<a href="/privacy-policy" class="text-primary-500 hover:underline">Privacy Policy</a>)
+				</Checkbox>
+			</div>
+
+			<div class="mb-6">
+				<div class="g-recaptcha" data-sitekey="6LclamUsAAAAAEy6G3U1Fe55g2-EnUBQ-EyYN5Wi"></div>
+			</div>
+
+			<Button style="primary" type="submit" classes="w-full lg:w-auto">Submit</Button>
+		</Form>
+	</CardBody>
+</Card>
