@@ -21,17 +21,20 @@ collections:
       - { label: "Body", name: "body", widget: "markdown" }
 
   - name: "testimonials"
-    label: "Testimonials (What our clients say)"
-    file: "src/data/json-files/testimonials.json"
-    fields:
-      - name: "items"
-        label: "Testimonial Items"
-        widget: "list"
+    label: "Testimonials"
+    files:
+      - name: "list"
+        label: "Client Testimonials"
+        file: "src/data/json-files/testimonials.json"
         fields:
-          - { label: "Quote", name: "quote", widget: "text" }
-          - { label: "Name", name: "name", widget: "string" }
-          - { label: "Role/Location", name: "role", widget: "string", required: false }
-          - { label: "Stars", name: "stars", widget: "number", default: 5, min: 1, max: 5 }
+          - name: "items"
+            label: "Testimonial Items"
+            widget: "list"
+            fields:
+              - { label: "Quote", name: "quote", widget: "text" }
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role/Location", name: "role", widget: "string", required: false }
+              - { label: "Stars", name: "stars", widget: "number", default: 5, min: 1, max: 5 }
 
   - name: "pages"
     label: "Page Content"
