@@ -121,7 +121,7 @@ const savedNavActions = navActions.map((action) => ({
 
 <style>
 	.header {
-		@apply sticky top-0 z-20 w-full animate-fadeInShadowDark [animation-range:0%_20rem] [animation-timeline:scroll()] before:absolute after:absolute after:left-0 after:top-full after:z-10 after:block after:h-px after:w-full lg:after:hidden;
+		@apply sticky top-0 z-20 w-full animate-fadeInShadowDark [animation-range:0%_20rem] [animation-timeline:scroll()] before:absolute lg:after:absolute lg:after:left-0 lg:after:top-full lg:after:z-10 lg:after:block lg:after:h-px lg:after:w-full lg:after:hidden;
 	}
 	.header:before {
 		@apply block h-full w-full lg:backdrop-blur-sm;
@@ -188,7 +188,7 @@ const savedNavActions = navActions.map((action) => ({
 		@apply w-1/2 origin-top-left translate-y-2 [.header\_\_toggle--open_&]:w-0;
 	}
 	.header__actions {
-		@apply fixed bottom-0 left-0 hidden w-full items-center justify-between gap-4 border-t border-neutral-800 px-6 py-2 lg:relative lg:ml-auto lg:flex lg:w-auto lg:border-none lg:bg-transparent lg:px-0 lg:py-1 [.header\_\_menu--open~&]:flex;
+		@apply fixed bottom-0 left-0 hidden w-full items-center justify-between gap-4 px-6 py-2 lg:relative lg:ml-auto lg:flex lg:w-auto lg:border-none lg:bg-transparent lg:px-0 lg:py-1 [.header\_\_menu--open~&]:flex;
 		background-color: #1B008A;
 		padding-bottom: calc(env(safe-area-inset-bottom, 0.75rem) + 0.5rem);
 	}	.header__actions :global(button) {

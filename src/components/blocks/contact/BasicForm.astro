@@ -14,6 +14,7 @@ import Form from '../../ui/forms/Form.astro'
 import FormField from '../../ui/forms/partials/FormField.astro'
 import InputField from '../../ui/forms/form-elements/InputField.astro'
 import TextArea from '../../ui/forms/form-elements/TextArea.astro'
+import Select from '../../ui/forms/form-elements/Select.astro'
 import Checkbox from '../../ui/forms/form-elements/Checkbox.astro'
 import Button from '../../ui/Button.astro'
 
@@ -28,7 +29,6 @@ const { classes } = Astro.props
 	<CardBody>
 		   <Form name="Inquiry" id="contact-form" data-netlify="true" action="/thanks" method="post">
 			   <input type="hidden" name="form-name" value="Inquiry" />
-			<h2 class="text-2xl">Get in Touch</h2>
 			<FormField>
 				<InputField type="text" id="firstName" name="firstName" label="First Name" required />
 				<InputField type="text" id="lastName" name="lastName" label="Last Name" required />
@@ -39,6 +39,24 @@ const { classes } = Astro.props
 			<FormField>
 				<InputField type="tel" id="phone" name="phone" label="Phone Number" required />
 			</FormField>
+			<FormField>
+				<Select 
+					id="reason" 
+					name="reason" 
+					label="Reason" 
+					required 
+					options={[
+						{ label: 'Elocution', value: 'elocution' },
+						{ label: 'Speech & Drama', value: 'speech-drama' },
+						{ label: 'Public Speaking & Presentations', value: 'public-speaking' },
+						{ label: 'Corporate & Business Coaching', value: 'corporate' },
+						{ label: 'Acting & Auditions', value: 'acting-auditions' },
+						{ label: 'Exams', value: 'exams' },
+						{ label: 'Voice coaching', value: 'voice-coaching' },
+						{ label: 'Other', value: 'other' }
+					]}
+				/>
+			</FormField>
 			<FormField><TextArea id="message" name="message" label="Your Message" required /></FormField>
 			
 			<div class="my-6">
@@ -48,7 +66,7 @@ const { classes } = Astro.props
 			</div>
 
 			<div class="mb-6">
-				<div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+				<div class="g-recaptcha" data-sitekey="6LclamUsAAAAAEy6G3U1Fe55g2-EnUBQ-EyYN5Wi"></div>
 			</div>
 
 			<Button style="primary" type="submit" classes="w-full lg:w-auto">Submit</Button>

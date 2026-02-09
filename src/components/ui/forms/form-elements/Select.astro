@@ -1,0 +1,102 @@
+---
+// Select field
+// ------------
+// Description: Custom styled select dropdown matching InputField animations.
+// Properties:
+// - id: The id of the select field
+// - name: The name of the select field
+// - label: The label of the select field
+// - options: Array of objects with label and value
+// - required: Whether the select field is required
+// - classes: Additional classes
+
+type Props = {
+	id: string
+	name?: string
+	label: string
+	options: { label: string; value: string }[]
+	required?: boolean
+	classes?: string
+}
+
+const { id, name, label, options, required, classes } = Astro.props
+---
+
+<div class:list={['input relative w-full', classes]}>
+	<select
+		id={id}
+		name={name || id}
+		required={required}
+		class="input__field peer appearance-none cursor-pointer"
+	>
+		<option value="" disabled selected hidden>{label}</option>
+		{options.map((option) => <option value={option.value}>{option.label}</option>)}
+	</select>
+	
+	<label
+		for={id}
+		class="input__label pointer-events-none"
+	>
+		{label}
+	</label>
+
+	<div class="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-neutral-400 transition-transform duration-300 peer-focus:rotate-180">
+		<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+		</svg>
+	</div>
+</div>
+
+<style>
+	.input {
+		@apply relative w-full;
+	}
+	.input__field {
+		@apply relative h-12 w-full rounded-sm border border-neutral-200 bg-white px-4 text-neutral-500 outline-none transition-all focus:border-primary-500 focus:outline-none dark:border-neutral-800 dark:bg-neutral-900;
+	}
+	/* Placeholder color for the first (invalid) option */
+	.input__field:invalid {
+		@apply text-neutral-400;
+	}
+	/* Error states */
+	:global(.is-submitted) .input__field:invalid {
+		@apply border-red-500 text-red-500;
+	}
+	:global(.is-submitted) .input__field:invalid ~ .input__label {
+		@apply text-red-500;
+	}
+	/* Match the floating label behavior of InputField.astro */
+	.input__label {
+		@apply absolute left-2 z-[1] px-2 text-base text-neutral-400 font-normal transition-all top-3 opacity-0 before:absolute before:left-0 before:top-0 before:z-[-1] before:block before:h-full before:w-full before:bg-white before:transition-all dark:before:bg-neutral-900;
+	}
+	/* Float label up on focus or when a value is selected */
+	.input__field:focus ~ .input__label,
+	.input__field:valid ~ .input__label {
+		@apply -top-2 text-xs text-primary-500 opacity-100;
+	}
+
+	/* Initial state color matching input text */
+	.input__label {
+		@apply text-neutral-400 opacity-0;
+	}
+
+	/* Only change to primary-500 when active or focused */
+	.input__field:focus ~ .input__label {
+		@apply text-primary-500 opacity-100;
+	}
+
+	/* Prevent chrome default highlight/blue border */
+	.input__field {
+		-webkit-tap-highlight-color: transparent;
+	}
+
+	/* Keep neutral color if valid but not focused */
+	.input__field:valid:not(:focus) ~ .input__label {
+		@apply text-neutral-400 opacity-100;
+	}
+	
+	/* Reset background for the floating part to match dark mode */
+	:global(.dark) .input__label::before {
+		@apply bg-neutral-900;
+	}
+</style>
