@@ -9,6 +9,7 @@ import Header from '../components/blocks/head/Header.astro'
 // Scripts
 import Scriprs from '../components/scripts/LocalScripts.astro'
 import GoogleTagManagerBody from '../components/scripts/googleTagManagerBody.astro'
+import RegisterComponents from '../components/scripts/RegisterComponents.astro'
 // Styles
 import '../styles/global.css'
 // Fonts
@@ -47,6 +48,7 @@ const { title, description, ogImage, noindex, classes } = Astro.props
 		<Footer />
 		<Modal />
 		<Scriprs />
+		<RegisterComponents />
 		<script is:inline src="https://unpkg.com/cloudcannon-live-editing"></script>
 	</body>
 </html>

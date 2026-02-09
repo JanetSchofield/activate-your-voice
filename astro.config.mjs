@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import partytown from "@astrojs/partytown";
 import tailwind from "@astrojs/tailwind";
 import icon from "astro-icon";
+import editableRegions from "@cloudcannon/editable-regions/astro-integration";
 
 import sitemap from "@astrojs/sitemap";
 
@@ -11,6 +12,7 @@ export default defineConfig({
   integrations: [
     tailwind(),
     icon(),
+    editableRegions(),
     sitemap(),
     partytown({
       config: {
