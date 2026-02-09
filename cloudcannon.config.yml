@@ -15,7 +15,11 @@ collections_config:
     filter:
       base: none
       include:
+        - "**/*.astro"
         - "**/*.md"
+      exclude:
+        - "blog/**"
+        - "index.astro"
 
   blog:
     path: src/content/blog
@@ -46,6 +50,8 @@ data_config:
     path: src/data/json-files/featuresData.json
   pricing:
     path: src/data/json-files/pricingTablesdata.json
+  team:
+    path: src/data/json-files/team.json
   navigation:
     path: src/config/navigationBar.ts
   footer:
