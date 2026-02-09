@@ -1,0 +1,68 @@
+# CloudCannon Configuration
+# Documented at https://cloudcannon.com/documentation/articles/cloudcannon-config/
+
+source: /
+# output: dist # Default for Astro
+
+# Collections Pointing to Content
+collections_config:
+  pages:
+    path: src/pages
+    url: /[path]
+    output: true
+    icon: description
+    name: Pages
+    filter:
+      base: none
+      include:
+        - "**/*.astro"
+        - "**/*.md"
+
+  blog:
+    path: src/content/blog
+    url: /blog/{slug}/
+    output: true
+    icon: article
+    name: News Posts
+  
+  testimonials:
+    path: src/data/json-files/testimonials.json
+    icon: format_quote
+    name: Testimonials
+
+  faq:
+    path: src/data/json-files/faqData.json
+    name: FAQ
+    icon: help_outline
+
+# Data Configuration
+data_config:
+  home:
+    path: src/data/json-files/home.json
+  testimonials:
+    path: src/data/json-files/testimonials.json
+  faq:
+    path: src/data/json-files/faqData.json
+  features:
+    path: src/data/json-files/featuresData.json
+  pricing:
+    path: src/data/json-files/pricingTablesdata.json
+  navigation:
+    path: src/config/navigationBar.ts
+  footer:
+    path: src/config/footerNavigation.ts
+
+# Visual Editing
+# This allows CloudCannon to know which elements on the page map to which content
+# We can add data-cms-bind attributes to our Astro components for the best experience.
+# https://cloudcannon.com/documentation/articles/introducing-visual-editing/
+
+editor:
+  default_view: visual
+
+# Build settings (CloudCannon will usually auto-detect these, but good to be explicit)
+# Astro 5 uses 'npm run build' and outputs to 'dist/'
+build:
+  install_command: npm install
+  build_command: npm run build
+  output_path: dist
