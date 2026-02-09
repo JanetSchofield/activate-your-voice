@@ -33,11 +33,6 @@ collections_config:
     icon: format_quote
     name: Testimonials
 
-  team:
-    path: src/data/team
-    name: Team Members
-    icon: person
-
   faq:
     path: src/data/json-files/faqData.json
     name: FAQ
@@ -55,10 +50,50 @@ data_config:
     path: src/data/json-files/featuresData.json
   pricing:
     path: src/data/json-files/pricingTablesdata.json
+  team:
+    path: src/data/json-files/team.json
   navigation:
     path: src/config/navigationBar.ts
   footer:
     path: src/config/footerNavigation.ts
+
+# Schemas for data editing
+_schemas:
+  team:
+    type: object
+    fields:
+      teamMembers:
+        type: array
+        of:
+          type: object
+          fields:
+            id:
+              type: string
+            name:
+              type: string
+              label: Name
+            image:
+              type: image
+              label: Profile Image
+            imageAlt:
+              type: string
+              label: Image Alt Text
+            profile:
+              type: textarea
+              label: Profile Bio
+            qualifications:
+              type: array
+              of:
+                type: string
+              label: Qualifications
+
+# Visual Editing
+# This allows CloudCannon to know which elements on the page map to which content
+# We can add data-cms-bind attributes to our Astro components for the best experience.
+# https://cloudcannon.com/documentation/articles/introducing-visual-editing/
+
+editor:
+  default_view: visual
 
 # Build settings (CloudCannon will usually auto-detect these, but good to be explicit)
 # Astro 5 uses 'npm run build' and outputs to 'dist/'

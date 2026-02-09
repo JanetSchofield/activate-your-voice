@@ -6,39 +6,8 @@ import Col from '../components/ui/Col.astro'
 import { Icon } from 'astro-icon/components'
 import Button from '../components/ui/Button.astro'
 
-// Import team data from markdown frontmatter
-import janet from '../data/team/janet-schofield.md'
-import elise from '../data/team/elise-schofield.md'
-
-const teamMembers = [
-  {
-    id: janet.frontmatter.id,
-    name: janet.frontmatter.name,
-    image: janet.frontmatter.image,
-    imageAlt: janet.frontmatter.imageAlt,
-    profile: janet.default,
-    qualifications: extractQualificationsFromMarkdown(janet.rawContent() || '')
-  },
-  {
-    id: elise.frontmatter.id,
-    name: elise.frontmatter.name,
-    image: elise.frontmatter.image,
-    imageAlt: elise.frontmatter.imageAlt,
-    profile: elise.default,
-    qualifications: extractQualificationsFromMarkdown(elise.rawContent() || '')
-  }
-]
-
-function extractQualificationsFromMarkdown(markdown: string): string[] {
-  const qualMatch = markdown.match(/## Qualifications\n\n([\s\S]*?)(?:\n##|$)/)
-  if (!qualMatch) return []
-  
-  return qualMatch[1]
-    .split('\n')
-    .filter(line => line.trim().startsWith('- '))
-    .map(line => line.replace(/^- /, '').trim())
-    .filter(line => line.length > 0)
-}
+// Import team data
+import teamData from '../data/json-files/team.json'
 
 const SEO = {
 	title: 'Meet the Team | Activate Your Voice',
@@ -107,7 +76,9 @@ const SEO = {
 										<!-- Tab Content: Profile -->
 										<div data-tab-content={`profile-${member.id}`} class="tab-content transition-all duration-300 opacity-100">
 											<div class="space-y-4 text-neutral-600 dark:text-neutral-400 leading-relaxed text-lg" data-cms-bind={`teamMembers.${index}.profile`}>
-												<member.profile />
+												{member.profile.split('\n\n').map((paragraph) => (
+													<p set:html={paragraph}></p>
+												))}
 											</div>
 										</div>
 
