@@ -15,7 +15,6 @@ collections_config:
     filter:
       base: none
       include:
-        - "**/*.astro"
         - "**/*.md"
 
   blog:

@@ -23,8 +23,8 @@ const { id = 'intro', title, text, classes } = Astro.props
 	<Row>
 		<Col span="12" align="center">
 			<header class="page-header">
-				<h1 class="page-header__title" set:html={title} data-cms-bind="#title" />
-				<p class="page-header__text" set:html={text} data-cms-bind="#text" />
+				<h1 class="page-header__title" set:html={title} data-cms-bind="title" />
+				<p class="page-header__text" set:html={text} data-cms-bind="text" />
 			</header>
 		</Col>
 	</Row>
