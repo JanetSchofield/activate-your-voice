@@ -8,7 +8,7 @@ source: /
 collections_config:
   pages:
     path: src/pages
-    url: /[path]
+    url: /[basename]/
     output: true
     icon: description
     name: Pages
