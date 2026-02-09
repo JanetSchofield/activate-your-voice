@@ -2,37 +2,14 @@
   if (window.inEditorMode) {
     import("@cloudcannon/editable-regions/astro").then(({ registerAstroComponent }) => {
       // Register your main UI components here
-      registerAstroComponent("Button", "/components/ui/Button.astro", {
-        label: "Button",
-      });
-      
-      registerAstroComponent("Section", "/components/ui/Section.astro", {
-        label: "Section",
-      });
-
-      registerAstroComponent("Feature", "/components/ui/Feature.astro", {
-        label: "Feature",
-      });
-
-      registerAstroComponent("Avatar", "/components/ui/Avatar.astro", {
-        label: "Avatar",
-      });
-
-      registerAstroComponent("Testimonial", "/components/ui/Testimonial.astro", {
-        label: "Testimonial",
-      });
-
-      registerAstroComponent("CTA", "/components/ui/CTA.astro", {
-        label: "Call to Action",
-      });
-
-      registerAstroComponent("Badge", "/components/ui/Badge.astro", {
-        label: "Badge",
-      });
-
-      registerAstroComponent("Highlight", "/components/ui/Highlight.astro", {
-        label: "Highlight",
-      });
+      registerAstroComponent("Button", "/components/ui/Button.astro");
+      registerAstroComponent("Section", "/components/ui/Section.astro");
+      registerAstroComponent("Feature", "/components/ui/Feature.astro");
+      registerAstroComponent("Avatar", "/components/ui/Avatar.astro");
+      registerAstroComponent("Testimonial", "/components/ui/Testimonial.astro");
+      registerAstroComponent("CTA", "/components/ui/CTA.astro");
+      registerAstroComponent("Badge", "/components/ui/Badge.astro");
+      registerAstroComponent("Highlight", "/components/ui/Highlight.astro");
     }).catch((error) => {
       console.warn("Failed to load CloudCannon component registration:", error);
     });
