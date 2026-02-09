@@ -115,13 +115,17 @@ const header = {
 		// Google reCAPTCHA validation
 		// @ts-ignore
 		if (typeof grecaptcha !== 'undefined') {
-			// @ts-ignore
-			const response = grecaptcha.getResponse();
-			if (!response) {
-				errors.push({
-					field: 'g-recaptcha-response',
-					message: 'Please complete the reCAPTCHA'
-				});
+			try {
+				// @ts-ignore
+				const response = grecaptcha.getResponse();
+				if (!response) {
+					errors.push({
+						field: 'g-recaptcha-response',
+						message: 'Please complete the reCAPTCHA'
+					});
+				}
+			} catch (e) {
+				console.warn('reCAPTCHA not initialized yet');
 			}
 		}
 		
@@ -173,8 +177,12 @@ const header = {
 		// Ensure reCAPTCHA response is included
 		// @ts-ignore
 		if (typeof grecaptcha !== 'undefined') {
-			// @ts-ignore
-			formData.set('g-recaptcha-response', grecaptcha.getResponse());
+			try {
+				// @ts-ignore
+				formData.set('g-recaptcha-response', grecaptcha.getResponse());
+			} catch (e) {
+				console.error('Error getting reCAPTCHA response:', e);
+			}
 		}
 
 		try {
