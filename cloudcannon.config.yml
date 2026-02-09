@@ -57,6 +57,36 @@ data_config:
   footer:
     path: src/config/footerNavigation.ts
 
+# Schemas for data editing
+_schemas:
+  team:
+    type: object
+    fields:
+      teamMembers:
+        type: array
+        of:
+          type: object
+          fields:
+            id:
+              type: string
+            name:
+              type: string
+              label: Name
+            image:
+              type: image
+              label: Profile Image
+            imageAlt:
+              type: string
+              label: Image Alt Text
+            profile:
+              type: textarea
+              label: Profile Bio
+            qualifications:
+              type: array
+              of:
+                type: string
+              label: Qualifications
+
 # Visual Editing
 # This allows CloudCannon to know which elements on the page map to which content
 # We can add data-cms-bind attributes to our Astro components for the best experience.
