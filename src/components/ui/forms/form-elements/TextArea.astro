@@ -51,8 +51,7 @@ const { id, name, label, iconName, iconPosition, helperText, required, disabled,
 		placeholder={label}
 		required={required}
 		disabled={disabled}
-		value={value}
-		class="input__field peer"></textarea>
+		class="input__field peer">{value}</textarea>
 	<label
 		for={id}
 		class={`input__label ${iconPosition === 'lead' ? 'peer-placeholder-shown:left-10 peer-focus:left-2' : ''}`}
@@ -74,7 +73,7 @@ const { id, name, label, iconName, iconPosition, helperText, required, disabled,
 		@apply relative w-full;
 	}
 	.input__field {
-		@apply relative w-full rounded-sm border border-neutral-200 px-4 text-neutral-500 placeholder-transparent outline-none -backdrop-hue-rotate-30 transition-all autofill:bg-white focus:border-primary-500 focus:outline-none focus-visible:outline-none disabled:cursor-not-allowed disabled:bg-neutral-50 disabled:text-neutral-400 dark:border-neutral-800 dark:bg-neutral-900 dark:autofill:bg-neutral-800 dark:disabled:bg-neutral-600;
+		@apply relative w-full rounded-sm border border-neutral-200 px-4 py-3 text-neutral-500 placeholder-transparent outline-none transition-all autofill:bg-white focus:border-primary-500 focus:outline-none focus-visible:outline-none disabled:cursor-not-allowed disabled:bg-neutral-50 disabled:text-neutral-400 dark:border-neutral-800 dark:bg-neutral-900 dark:autofill:bg-neutral-900 dark:disabled:bg-neutral-600;
 	}
 	.is-submitted .input__field:invalid {
 		@apply border-red-500 text-red-500;
