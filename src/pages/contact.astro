@@ -40,6 +40,22 @@ const header = {
 		if (form) {
 			// Remove default browser validation popups
 			form.setAttribute('novalidate', 'true');
+
+			// Manually render reCAPTCHA if it's not already rendered
+			// @ts-ignore
+			if (typeof grecaptcha !== 'undefined') {
+				const recaptchaContainer = document.querySelector('.g-recaptcha') as HTMLElement;
+				if (recaptchaContainer && recaptchaContainer.innerHTML.trim() === '') {
+					try {
+						// @ts-ignore
+						grecaptcha.render(recaptchaContainer, {
+							'sitekey': '6LclamUsAAAAAEy6G3U1Fe55g2-EnUBQ-EyYN5Wi'
+						});
+					} catch (e) {
+						console.log('reCAPTCHA failed to render:', e);
+					}
+				}
+			}
 			
 			form.addEventListener('submit', async (e) => {
 				e.preventDefault();
