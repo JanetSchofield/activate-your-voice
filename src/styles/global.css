@@ -2,8 +2,16 @@
 html {
 	@apply scroll-smooth antialiased;
 	overflow-x: hidden;
-	font-size: 115%;
+	font-size: 100%;
 }
+
+/* Upscale for high-resolution screens at 100% zoom (Mimics the 150% zoom feel) */
+@media (min-width: 1600px) {
+	html {
+		font-size: 110%;
+	}
+}
+
 body {
 	overflow-x: hidden;
 }

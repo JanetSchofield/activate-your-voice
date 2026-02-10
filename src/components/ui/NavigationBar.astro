@@ -45,7 +45,7 @@ const savedNavActions = navActions.map((action) => ({
 		<nav aria-label="main navigation" role="navigation" class="header__nav">
 			<!-- Logo -->
 			<a href="/" class="header__logo">
-				<img src={logo.src} alt={logo.alt} width="185" height="185" />
+				<img src={logo.src} alt={logo.alt} class="header__logo-img" />
 				{logo.text && <span>{logo.text}</span>}
 			</a>
 
@@ -133,8 +133,22 @@ const savedNavActions = navActions.map((action) => ({
 	.header__logo {
 		@apply flex flex-auto items-center gap-2 whitespace-nowrap py-2 font-headings text-2xl font-black tracking-wider focus:outline-none;
 	}
+	.header__logo-img {
+		width: 155px;
+		height: auto;
+	}
+	@media (min-width: 1600px) {
+		.header__logo-img {
+			width: 175px;
+		}
+	}
 	.header__nav {
-		@apply flex h-[5.5rem] items-stretch gap-4 text-lg font-medium text-neutral-50 lg:justify-between;
+		@apply flex h-[4.9rem] items-stretch gap-4 text-base font-medium text-neutral-50 lg:justify-between;
+	}
+	@media (min-width: 1600px) {
+		.header__nav {
+			@apply h-[5.2rem] text-base;
+		}
 	}
 	   .header__menu {
 		   @apply invisible absolute left-0 top-0 z-[-1] ml-auto h-dvh w-full justify-center overflow-hidden overflow-y-auto overscroll-contain px-8 py-[6rem] font-medium opacity-0 transition-[opacity,visibility] duration-300 lg:visible lg:relative lg:top-0 lg:z-0 lg:flex lg:h-full lg:w-auto lg:items-stretch lg:overflow-visible lg:bg-transparent lg:px-0 lg:py-0 lg:pt-0 lg:opacity-100;
@@ -147,7 +161,12 @@ const savedNavActions = navActions.map((action) => ({
 		@apply relative flex cursor-pointer flex-col items-stretch lg:flex-row;
 	}
 	.header__menu-link {
-		@apply relative flex items-center gap-1 py-4 text-lg transition-colors duration-300 hover:text-primary-500 focus:text-primary-600 focus:outline-none focus-visible:outline-none lg:text-lg lg:px-4 [&.active]:text-primary-500;
+		@apply relative flex items-center gap-1 py-4 text-lg transition-colors duration-300 hover:text-primary-500 focus:text-primary-600 focus:outline-none focus-visible:outline-none lg:text-sm lg:px-3 [&.active]:text-primary-500;
+	}
+	@media (min-width: 1600px) {
+		.header__menu-link {
+			@apply lg:text-lg lg:px-4;
+		}
 	}
 	.header__menu-chevron {
 		@apply h-4 w-4 transition-transform [.header\_\_menu-item.open_&]:rotate-180;
