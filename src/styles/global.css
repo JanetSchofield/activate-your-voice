@@ -2,6 +2,7 @@
 html {
 	@apply scroll-smooth antialiased;
 	overflow-x: hidden;
+	font-size: 110%;
 }
 body {
 	overflow-x: hidden;

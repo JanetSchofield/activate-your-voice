@@ -1,18 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Hero from '../components/blocks/hero/PageHeader.astro'
+import pageData from '../data/json-files/pages/business-coaching.json'
 
 const SEO = {
-	title: 'Business Coaching | Activate Your Voice',
-	description: 'Professional business coaching services'
-}
-
-const header = {
-	title: 'Business Coaching',
-	text: 'Coming soon'
+	title: pageData.seoTitle,
+	description: pageData.seoDescription
 }
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
-	<Hero title={header.title} text={header.text} />
+	<Hero title={pageData.heroTitle} text={pageData.heroDescription} />
 </Layout>
